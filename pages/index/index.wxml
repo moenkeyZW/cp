@@ -1,0 +1,104 @@
+<!--index.wxml-->
+<view>
+  <view wx:if='{{isHaveJoin}}' class=" main">
+    <view class='container'>
+      <view class='header'>
+        <view>
+          <view class='suc'>报名成功</view>
+          <view class='wait'>请等待揭晓结果</view>
+        </view>
+        <view class='Countdown'>匹配倒计时 {{timestamp}}</view>
+      </view>
+      <view class='bu'>
+        <text>开启提醒</text>
+        <image src='../../imgs/rtWhite.png' class='right'></image>
+      </view>
+      <view class='status'>
+        <view class='now'>当前预选身份:</view>
+        <image src='../../imgs/badge.png' class='badge'></image>
+        <text class='nowStatus'>{{status}}</text>
+      </view>
+      <view class='pro'>
+        <progress percent="{{percent}}" stroke-width="4" color='#FFE556' />
+      </view>
+      <view class='img'>
+        <block>
+          <view wx:if="{{percent>0}}">
+            <image src='../../imgs/yellowR.png' class='yuan luren'></image>
+          </view>
+          <view wx:else>
+            <image src='../../imgs/grayR.png' class='yuan luren'></image>
+          </view>
+        </block>
+        <block>
+          <view wx:if="{{percent>=25}}">
+            <image src='../../imgs/yellowR.png' class='yuan xinxiu'></image>
+          </view>
+          <view wx:else>
+            <image src='../../imgs/grayR.png' class='yuan xinxiu'></image>
+          </view>
+        </block>
+        <block>
+          <view wx:if="{{percent>=50}}">
+            <image src='../../imgs/yellowR.png' class='yuan xiaoka'></image>
+          </view>
+          <view wx:else>
+            <image src='../../imgs/grayR.png' class='yuan xiaoka'></image>
+          </view>
+        </block>
+        <block>
+          <view wx:if="{{percent>=75}}">
+            <image src='../../imgs/yellowR.png' class='yuan daka'></image>
+          </view>
+          <view wx:else>
+            <image src='../../imgs/grayR.png' class='yuan daka'></image>
+          </view>
+        </block>
+        <block>
+          <view wx:if="{{percent==100}}">
+            <image src='../../imgs/yellowR.png' class='yuan juxing'></image>
+          </view>
+          <view wx:else>
+            <image src='../../imgs/grayR.png' class='yuan juxing'></image>
+          </view>
+        </block>
+      </view>
+      <view class='xx'>
+        <text>路人</text>
+        <text>新秀</text>
+        <text>小咖</text>
+        <text>大咖</text>
+        <text>巨星</text>
+      </view>
+      <view class='next'>
+        <text>距离下一等级还差</text>
+        <text class='number'>5</text>
+        <text>位</text>
+      </view>
+      <view class='friend'>
+        <text>站台好友</text>
+        <label wx:for="{{friendArr}}" wx:key="{{index}}">
+          <view >
+            <image class='friAvatar' src='../../imgs/badge.png'></image>
+          </view>
+        </label>
+      </view>
+    </view>
+    <view class='yqf'>邀请好友可提升等级，身份越高，匹配越优先，匹配成功概率越高</view>
+    <view class='hy'>
+      <button open-type='share' class='primary'>邀请好友站台</button>
+    </view>
+  </view>
+  <view wx:else class="container">
+    <view class='bgOne'>
+      <image src='../../imgs/bgOne.png' class='bg'></image>
+    </view>
+    <view class="userinfo">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='enter'>立即报名 </button>
+    </view>
+    <view bindtap='actIntro' class='actintro'>
+      <text>活动介绍</text>
+      <image src='../../imgs/right.png' class='right'></image>
+    </view>
+  </view>
+</view>

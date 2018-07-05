@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/intro/index",
+    "pages/person/index",
+    "pages/hobby/index",
+    "pages/mate/index",
+    "pages/task/index",
+    "pages/my/index",
+    "pages/introSelf/index",
+    "pages/myHobby/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "爱情公式",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColor": "#000000"
+  },
+  "tabBar": {
+    "selectedColor": "#19b4f2",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./imgs/ta.png",
+        "selectedIconPath": "./imgs/ta_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/task/index",
+        "iconPath": "./imgs/task.png",
+        "selectedIconPath": "./imgs/task_selected.png",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "./imgs/my.png",
+        "selectedIconPath": "./imgs/my_selected.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

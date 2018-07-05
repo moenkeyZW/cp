@@ -1,0 +1,61 @@
+/* pages/hobby/index.wxss */
+@import '../../css/common.wxss';
+@import '../person/index.wxss';
+@import '../mate/index.wxss';
+
+.choose {
+  position: absolute;
+  right: 72rpx;
+  top: 25rpx;
+  color:#B2B2B2;
+}
+.section{
+  margin: 0 0 30rpx 0;
+  border:none;
+}
+.title{
+  padding-left:30rpx;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.item {
+  text-align: center;
+  width: 138rpx;
+  height: 50rpx;
+  margin: 25rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-size: 26rpx;
+  background: #ccc;
+  float: left;
+}
+
+.is_checked {
+  color: #333;
+  background: #D4E2FF;
+}
+
+.db {
+  clear: both;
+  margin-top: 30rpx;
+}
+
+.itemCheck {
+  text-align: center;
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-size: 26rpx;
+  color: #333;
+  background: #D4E2FF;
+  margin:0 5rpx;
+  align-self: center;
+}

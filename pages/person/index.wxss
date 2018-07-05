@@ -1,0 +1,108 @@
+/* pages/person/index.wxss */
+@import '../../css/common.wxss';
+
+.container {
+  min-height: 100vh;
+  background-color: #f0eff5;
+  align-items: flex-start;
+}
+.makeup {
+  width: 100%;
+  background: #fff;
+  margin:50rpx 0;
+}
+.makeup picker:last-child .section{
+  border:none;
+}
+
+input{
+  text-align: right;
+}
+
+.form{
+  width:100%;
+}
+.section {
+  margin-left:30rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 12rpx 38rpx 12rpx 0;
+  font-size: 28rpx;
+  min-height: 60rpx;
+  position: relative;
+  border-bottom: 1rpx solid #E5E5E5;
+  clear: both;
+}
+
+.section picker {
+  width: 100%;
+}
+.content{
+  color:#B2B2B2;
+  padding-right:25rpx;
+}
+.col{
+  color:#B2B2B2;
+}
+
+.section .wrapper {
+  width: 100%;
+  display: flex;
+}
+.phcolor{
+  color: #B2B2B2;
+  text-align: right;
+}
+ .section .title {
+  font-size:30rpx;
+  line-height: 1.6rem;
+  flex: 1;
+}
+.con{
+  padding-top:6rpx;
+  color:#B2B2B2;
+  min-height: 55rpx;
+  text-align: right;
+}
+.section .unit {
+  padding-top:12rpx;
+  padding-right:25rpx;
+}
+.date{
+  padding-top:12rpx;
+}
+
+.btn-area {
+  margin-top: 35rpx;
+}
+.intro{
+  display: block;
+  border-bottom:none;
+}
+textarea{
+  border:1rpx solid #ccc;
+  width:100%;
+  height:120rpx;
+}
+.self{
+  margin-bottom:15rpx;
+}
+.db{
+  margin:30rpx 0 50rpx 0;
+  font-size:26rpx;
+  text-align: center;
+}
+
+.db>button{
+  width:calc(100% - 60rpx);
+  font-size:34rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+}
+.foot{
+  font-size:28rpx;
+  color:#999;
+  margin:50rpx 0;
+}

@@ -1,0 +1,57 @@
+<!--pages/mate/index.wxml-->
+<view class='container'>
+  <view class='head'>请填写你的CP倾向</view>
+  <form bindsubmit="mateHandle" class='form'>
+    <picker bindchange="pickMinAge" value='{{index}}' range="{{ageArr}}">
+      <view class="section">
+        <view class='wrapper'>
+          <label class="title">最小年龄</label>
+          <input name="ageMin" type="number" class="con" value='{{ageMin}}' disabled/>
+          <text class='unit' hidden='{{ageMin==0||ageMin==null}}'>岁</text>
+        </view>
+        <view class='right-arrow'>
+          <image src='../../imgs/arrow.png'></image>
+        </view>
+      </view>
+    </picker>
+    <picker bindchange="pickMaxAge" value='{{index}}' range="{{ageArr}}">
+      <view class="section mgBot">
+        <view class='wrapper'>
+          <label class="title">最大年龄</label>
+          <input name="ageMax" type="number" class="con" value='{{ageMax}}' disabled/>
+          <text class='unit' hidden='{{ageMax==0||ageMax==null}}'>岁</text>
+        </view>
+        <view class='right-arrow'>
+          <image src='../../imgs/arrow.png'></image>
+        </view>
+      </view>
+    </picker>
+   <picker bindchange="pickArea" value="{{index}}" range="{{AreaArray}}" name="area">
+      <view class="section">
+        <view class='wrapper'>
+          <label class="title">地区</label>
+          <view class='content date'>{{AreaArray[index]}}</view>
+        </view>
+        <view class='right-arrow'>
+          <image src='../../imgs/arrow.png'></image>
+        </view>
+      </view>
+    </picker>
+     <picker bindchange="pickEducational" value="{{indexs}}" range="{{EducationalArray}}" name="edu">
+      <view class="section mgBot">
+        <view class='wrapper'>
+          <label class="title">学历</label>
+          <view class='content date'>{{EducationalArray[indexs]}}</view>
+        </view>
+        <view class='right-arrow'>
+          <image src='../../imgs/arrow.png'></image>
+        </view>
+      </view>
+    </picker>
+
+    <view class="db">
+      <view class='foot'>越完善匹配成功率越高哦</view>
+      <button form-type="submit" class='primary' disabled="{{disabled}}">确认报名</button>
+    </view>
+  </form>
+</view>

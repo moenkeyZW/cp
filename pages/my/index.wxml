@@ -1,0 +1,65 @@
+<!--pages/my/index.wxml-->
+<view class='container'>
+  <view class='cp'>
+    <view class='avatar'>
+      <open-data type='userAvatarUrl'></open-data>
+    </view>
+    <view>
+      <view class='week'>一周CP</view>
+      <view class='zw'>查看个人信息</view>
+    </view>
+    <view class='right-arrows'>
+      <image src='../../imgs/arrow.png'></image>
+    </view>
+  </view>
+
+
+  <view class='makeup mrg' >
+    <view class="section" bindtap='goIntroSelf'>
+      <view class='wrapper'>
+        <label class="title">自我介绍</label>
+      </view>
+      <view class='right-arrow'>
+        <image src='../../imgs/arrow.png'></image>
+      </view>
+    </view>
+    <view class="section bor" bindtap='goMyHobby'>
+      <view class='wrapper'>
+        <label class="title">兴趣爱好</label>
+      </view>
+      <view class='right-arrow'>
+        <image src='../../imgs/arrow.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="section">
+    <view class='wrapper'>
+      <label class="title">CP匹配倾向</label>
+    </view>
+    <view class='right-arrow'>
+      <image src='../../imgs/arrow.png'></image>
+    </view>
+  </view> -->
+  <view class='makeup mrg' bindtap='goIntro'>
+    <view class="section bor">
+      <view class='wrapper'>
+        <label class="title">活动详情</label>
+      </view>
+      <view class='right-arrow'>
+        <image src='../../imgs/arrow.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='makeup mrg'>
+    <view class="section bor">
+      <view class='wrapper'>
+        <label class="title">联系我们</label>
+      </view>
+      <view class='right-arrow'>
+        <image src='../../imgs/arrow.png'></image>
+      </view>
+    </view>
+  </view>
+
+
+</view>
