@@ -1,4 +1,6 @@
 // pages/hobby/index.js
+const app = getApp();
+
 Page({
 
   /**
@@ -16,70 +18,7 @@ Page({
     musicList: '',
     musicArr: '',
     musicChoose: true,
-    movieList: [{
-        value: "0",
-        name: "科幻",
-        checked: "false"
-      },
-      {
-        value: "1",
-        name: "喜剧",
-        checked: "false"
-      },
-      {
-        value: "2",
-        name: "动作",
-        checked: "false"
-      },
-      {
-        value: "3",
-        name: "悬疑",
-        checked: "false"
-      },
-      {
-        value: "4",
-        name: "爱情",
-        checked: "false"
-      },
-      {
-        value: "5",
-        name: "文艺",
-        checked: "false"
-      },
-      {
-        value: "6",
-        name: "战争",
-        checked: "false"
-      },
-
-      {
-        value: "7",
-        name: "记录",
-        checked: "false"
-      },
-
-      {
-        value: "8",
-        name: "魔幻",
-        checked: "false"
-      },
-
-      {
-        value: "9",
-        name: "犯罪",
-        checked: "false"
-      },
-      {
-        value: "10",
-        name: "惊悚",
-        checked: "false"
-      },
-      {
-        value: "11",
-        name: "不喜欢",
-        checked: "false"
-      }
-    ],
+    movieList:'',
     movieArr: '',
     movieChoose: true,
     bookList: '',
@@ -105,10 +44,25 @@ Page({
       method: 'GET',
       success: function(res) {
         console.log(res);
+        for(var i in res.data.yundong){
+          res.data.yundong[i].checked=false;
+        }
+        for (var i in res.data.yinyue) {
+          res.data.yinyue[i].checked = false;
+        }
+        for (var i in res.data.dianying) {
+          res.data.dianying[i].checked = false;
+        }
+        for (var i in res.data.shuji) {
+          res.data.shuji[i].checked = false;
+        }
+        for (var i in res.data.chongwu) {
+          res.data.chongwu[i].checked = false;
+        }
         that.setData({
           sportList: res.data.yundong,
           musicList: res.data.yinyue,
-          // movieList: res.data.dianying,
+          movieList: res.data.dianying,
           bookList: res.data.shuji,
           petList: res.data.chongwu
         })
@@ -202,7 +156,6 @@ Page({
   sportChange: function(e) {
     var sportArr = '';
     var that = this
-    console.log(that)
     var items = that.data.sportList;
     var checkArr = e.detail.value;
     for (var i = 0; i < items.length; i++) {
@@ -248,11 +201,9 @@ Page({
     var musicArr = '';
     var that = this
     var items = that.data.musicList;
-    console.log(items);
     var checkArr = e.detail.value;
     for (var i = 0; i < items.length; i++) {
       if (checkArr.indexOf(i + "") != -1) {
-        console.log(items[i])
         items[i].checked = true;
         musicArr = musicArr + items[i].name + ',';
         musicArr = musicArr.split(",");
@@ -292,13 +243,10 @@ Page({
   movieChange: function(e) {
     var movieArr = '';
     var that = this
-    console.log(that)
     var items = that.data.movieList;
-    console.log(items)
     var checkArr = e.detail.value;
     for (var i = 0; i < items.length; i++) {
       if (checkArr.indexOf(i + "") != -1) {
-        console.log(items[i])
         items[i].checked = true;
         movieArr = movieArr + items[i].name + ',';
         movieArr = movieArr.split(",");
