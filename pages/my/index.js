@@ -10,6 +10,7 @@ Page({
    */
   data: {
     userInfo: {},
+    hasUserInfo: false,
   },
 
   /**
@@ -44,7 +45,12 @@ Page({
     }
   },
 
-
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -52,7 +58,7 @@ Page({
   onShow: function () {
   
   },
-  goPerson:function(){
+  goPerson: function () {
     wx.navigateTo({
       url: '/pages/person/index',
     })

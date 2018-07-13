@@ -6,10 +6,10 @@
     "pages/person/index",
     "pages/hobby/index",
     "pages/mate/index",
+    "pages/friend/index",
     "pages/task/index",
     "pages/my/index",
     "pages/introSelf/index",
-    "pages/friend/index",
     "pages/fdCall/index",
     "pages/totalPer/index"
   ],
