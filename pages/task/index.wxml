@@ -1,2 +1,4 @@
 <!--pages/task/index.wxml-->
-<text>任务</text>
+<view class='container'>
+  <view bindtap='upload'>上传图片+</view>
+</view>

@@ -1,39 +1,124 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
+  },
+  onLogin: function (cb) {
+    var that = this;
+    wx.checkSession({
+      success: function (res) {
+        if (wx.getStorageSync('openid')) {
+          that.onRefresh(cb);
+        } else {
+          wx.login({
             success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+              if (res.code) {
+                wx.getUserInfo({
+                  withCredentials: true,
+                  success: function (res_user) {
+                    wx.request({
+                      url: that.globalData.base_url + 'wechat/login/',
+                      data: {
+                        code: res.code,
+                        encryptedData: res_user.encryptedData,
+                        iv: res_user.iv
+                      },
+                      method: 'GET',
+                      header: {
+                        'content-type': 'application/json'
+                      },
+                      success: function (res) {
+                        console.log(res)
+                        that.globalData.userInfo = res.data.userinfo;
+                        wx.setStorageSync('session', res.data.hash);
+                        wx.setStorageSync('openid', res.data.openid);
+                        typeof cb == "function" && cb(that.globalData.userInfo)
+                      }
+                    })
+                  },
+                  fail: function (e) {
+                    typeof cb == "function" && cb(false)
+                  }
+                })
+              } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
               }
-            }
+            },
           })
         }
+      },
+      fail: function () {
+        wx.login({
+          success: res => {
+            if (res.code) {
+              wx.getUserInfo({
+                withCredentials: true,
+                success: function (res_user) {
+                  wx.request({
+                    url: that.globalData.base_url + 'wechat/login/',
+                    data: {
+                      code: res.code,
+                      encryptedData: res_user.encryptedData,
+                      iv: res_user.iv
+                    },
+                    method: 'GET',
+                    header: {
+                      'content-type': 'application/json'
+                    },
+                    success: function (res) {
+                      that.globalData.userInfo = res.data.userinfo;
+                      wx.setStorageSync('session', res.data.hash);
+                      wx.setStorageSync('openid', res.data.openid);
+                      typeof cb == "function" && cb(that.globalData.userInfo)
+                    }
+                  })
+                },
+                fail: function (e) {
+                  typeof cb == "function" && cb(false)
+                }
+              })
+            } else {
+            }
+          }
+        })
       }
     })
   },
+  onRefresh: function (cb) {
+    var that = this;
+    wx.checkSession({
+      success: function (res) {
+        if (!that.globalData.userInfo) {
+          if (wx.getStorageSync('openid')) {
+            wx.request({
+              url: that.globalData.base_url + 'wechat/login_info/',
+              data: {
+                openid: wx.getStorageSync('openid'),
+              },
+              method: 'GET',
+              header: {
+                'content-type': 'application/json'
+              },
+              success: function (res) {
+                that.globalData.userInfo = res.data.userinfo;
+                typeof cb == "function" && cb(that.globalData.userInfo)
+              }
+            })
+          } else {
+            that.onLogin(cb);
+          }
+        } else {
+          typeof cb == "function" && cb(that.globalData.userInfo)
+        }
+      },
+      fail: function (res) {
+        that.onLogin(cb);
+      },
+    })
+
+  },
   globalData: {
-    userInfo: null
-  }
+    base_url: "https://www.1537u.cn/admin/",
+    userInfo: null,
+  },
 })

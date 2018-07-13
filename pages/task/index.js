@@ -1,66 +1,57 @@
 // pages/task/index.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function(options) {
+
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+  upload: function() {
+    var that = this
+    wx.chooseImage({
+      count: 4,
+      success: function(res) {
+        console.log(res.tempFilePaths);
+        var tempFilePaths = res.tempFilePaths;
+        for (var i = 0; i < tempFilePaths.length; i++) {
+          wx.uploadFile({
+            url: 'https://www.1537u.cn/admin/wechat/upload_img', //仅为示例，非真实的接口地址//接口连接
+            filePath: tempFilePaths[i],
+            name: 'file',
+            header: {
+              "Content-Type": "multipart/form-data",
+              'accept': 'application/json',
+            },
+            formData: {
+              'user': 'test'
+            },
+            success: function (res) {
+              console.log(res)
+              var data = res.data
+              //do something
+            }
+          })
+        }
+      }
+    })
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

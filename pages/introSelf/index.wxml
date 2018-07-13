@@ -1,2 +1,30 @@
 <!--pages/introSelf/index.wxml-->
-<text>pages/introSelf/index.wxml</text>
+<view class='container'>
+  <form bindsubmit="introSelf" class='form'>
+    <view class='makeup'>
+      <view class="section intro">
+        <view class="self">我的成长经历</view>
+        <textarea placeholder="请填写自我介绍" placeholder-style='color:#B2B2B2;' name="introduce" bindconfirm='introYself' auto-height='true' />
+      </view>
+      <view class="section intro">
+        <view class="self">我的未来规划</view>
+        <textarea placeholder="未来规划" placeholder-style='color:#B2B2B2;' name="futureDoing" bindconfirm='introFutu' auto-height='true' />
+      </view>
+      <view class="section intro">
+        <view class="self">我最近在做的事</view>
+        <textarea placeholder="最近正在做啥" placeholder-style='color:#B2B2B2;' name="nowDoing" bindconfirm='introNow' auto-height='true' />
+      </view>
+      <view class="section intro">
+        <view class="self">我的优点</view>
+        <textarea placeholder="请填写自己的优点" placeholder-style='color:#B2B2B2;' name="myYou" bindconfirm='introYou' auto-height='true' />
+      </view>
+      <view class="section intro">
+        <view class="self">我的缺点</view>
+        <textarea placeholder="请填写自己的缺点" placeholder-style='color:#B2B2B2;' name="myQue" bindconfirm='introQue' auto-height='true' />
+      </view>
+    </view>
+    <view class="db">
+      <button form-type="submit" class='primary' disabled="{{disabled}}">保存</button>
+    </view>
+  </form>
+</view>

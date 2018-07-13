@@ -11,38 +11,33 @@
 }
 .header {
   width: 100%;
-  height: 300rpx;
-  background-color: #6995fe;
-  /*4、有四个值，其中第一个值是设置 top-left 而第二个值是 top-right 第三个值 bottom-right 第四个值是设置 bottom-left*/
-  color: #fff;
-  text-align: center;
-}
-
-.bu {
+  height: 355rpx;
   position: relative;
-  bottom: 56rpx;
-  width: 100%;
-  height: 110rpx;
-  line-height: 110rpx; 
-  background-color: #6995fe;
-  border-radius: 50% / 55rpx;
-  color: #fff;
   text-align: center;
-  font-size: 28rpx;
+  color:#fff;
 }
-
+.hemain{
+  position: absolute;
+  top:0;
+  left:211rpx;
+}
+.hs{
+  width: 100%;
+  height: 355rpx;
+}
 .suc {
   font-size: 60rpx;
-  padding: 46rpx 0 8rpx 0;
+  padding: 50rpx 0 12rpx 0;
 }
 
 .wait {
-  font-size: 26rpx;
-  padding-bottom: 24rpx;
+  font-size: 24rpx;
+  margin-bottom:50rpx;
 }
 
 .Countdown {
-  font-size: 28rpx;
+  font-size: 26rpx;
+  margin-bottom:22rpx;
 }
 
 .userinfo {
@@ -50,26 +45,29 @@
 }
 
 .badge {
-  width: 100rpx;
-  height: 100rpx;
+  width: 81rpx;
+  height: 89rpx;
 }
 
 .status {
   display: flex;
-  margin: -30rpx 0 50rpx 0;
+  margin: 61rpx 0 71rpx 30rpx;
   justify-content: center;
 }
-
+.bu{
+  margin-bottom:47rpx;
+  font-size:28rpx
+}
 .now {
   align-self: center;
-  font-size: 35rpx;
+  font-size: 32rpx;
 }
 
 .nowStatus {
   position: relative;
-  font-size: 25rpx;
-  top: 22rpx;
-  right: 74rpx;
+  font-size: 22rpx;
+  top: 18rpx;
+  right: 63rpx;
 }
 
 .enter {
@@ -143,7 +141,7 @@
   width: 100%;
   position: relative;
   bottom: 30rpx;
-  left: 76rpx;
+  left: 83rpx;
   font-size: 24rpx;
   margin-bottom:30rpx;
 }
@@ -155,8 +153,8 @@
   width: 100%;
   text-align: left;
   color:#B4B4B4;
-  font-size:26rpx;
-  margin-left:90rpx;
+  font-size:22rpx;
+  margin-left:40rpx;
   padding-bottom:15rpx;
   border-bottom:1rpx solid #ccc;
 }
@@ -167,18 +165,25 @@
 .friend{
   width: 100%;
   text-align: left;
-  font-size:32rpx;
-  margin:32rpx 0 22rpx 90rpx;
+  font-size:28rpx;
+  margin:22rpx 0 22rpx 40rpx;
   display: flex;
   line-height: 52rpx;
+  position: relative;
 }
 .friend>text{
   padding-right:28rpx;
 }
-
+.ii{
+ position: absolute;
+}
+.dian{
+  position:absolute;
+  right:217rpx;
+}
 .friAvatar{
-  width:52rpx;
-  height:52rpx;
+  width:53rpx;
+  height:53rpx;
   border-radius: 50%;
 }
 
@@ -187,7 +192,7 @@
   height: 50rpx;
   line-height: 50rpx;
   background: #fdfcea;
-  color: #fc6147;
+  color: #FD6D52;
   font-size: 22rpx;
   text-align: center;
   margin: 20rpx 0;
@@ -197,8 +202,8 @@
 }
 .hy>button{
   width:calc(100% - 60rpx);
-  font-size:34rpx;
-  height:90rpx;
-  line-height: 90rpx;
-  border-radius: 45rpx;
+  font-size:36rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
 }

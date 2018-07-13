@@ -1,0 +1,41 @@
+/* pages/totalPer/index.wxss */
+@import '../../css/common.wxss';
+@import '../mate/index.wxss';
+@import '../hobby/index.wxss';
+@import '../person/index.wxss';
+
+
+.titOne{
+  font-size:28rpx;
+  color:#B2B2B2;
+  margin:30rpx 0 20rpx 30rpx;
+  clear: both;
+}
+
+.intro{
+  display: block;
+  border-bottom:none;
+}
+.makeup .intro:last-child textarea{
+  border-bottom: none;
+}
+.makeup{
+  margin:0;
+}
+
+
+/* .makeup .intro:last-child{
+  padding-bottom:0;
+} */
+
+.self{
+  margin-bottom:20rpx;
+  color:#333;
+}
+
+.bor{
+  border: none;
+}
+.foot {
+  margin: 40rpx 0;
+}
