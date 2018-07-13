@@ -2,11 +2,17 @@
 @import '../../css/common.wxss';
 @import '../person/index.wxss';
 
+.container {
+  min-height: 100vh;
+  background-color: #F0EFF5;
+  align-items: flex-start;
+}
+
 
 .head {
   font-size: 28rpx;
-  margin: 40rpx 0 20rpx 30rpx;
-  color: #888;
+  margin: 30rpx 0 30rpx 30rpx;
+  color: #999;
 }
 .mgBot{
   margin-bottom: 30rpx;
@@ -14,7 +20,7 @@
 }
 .foot{
   font-size:28rpx;
-  color:#888;
+  color:#999;
   margin:50rpx 0;
 }
 

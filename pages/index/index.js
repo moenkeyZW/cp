@@ -4,27 +4,26 @@ const app = getApp();
 
 Page({
   data: {
-    isHaveJoin:true,
+    isHaveJoin:false,
     userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     timestamp: '',
     intervarID: 'clock',
     status:'路人',
-    percent:25,
-    friendArr:[
-      { img: '../../imgs/ta.png', right: '440rpx' },
-      { img: '../../imgs/bgS.png', right: '400rpx' },
-      { img: '../../imgs/ta.png', right: '360rpx' }, 
-      { img: '../../imgs/ta.png', right: '320rpx' },
-      { img: '../../imgs/ta.png', right: '280rpx' },
-      { img: '../../imgs/ta.png', right: '240rpx' },
-      { img: '../../imgs/ta.png', right: '200rpx' },
-      { img: '../../imgs/ta.png', right: '160rpx' },
-    ],
+    percent:40,
+    friendArr:[1,2,3,4,5,6,7,8,9,10],
   },
-
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
   onLoad: function () {
     var that = this;
-    that.data.intervarID = setInterval(function () {
+
+    this.data.intervarID = setInterval(function () {
       var date = Date.parse(new Date()) / 1000;
       var time = 1530892800;
       var total = time - date;
@@ -51,63 +50,56 @@ Page({
       if (total <= 0) {
         clearInterval(that.data.intervarID);
       }
-    }, 1000)
-  },
-  onShow:function(){
-    var that = this;
-    var userInfo = app.globalData.userInfo;
-    if (!app.globalData.userInfo) {
-      wx.showLoading({
-        title: '加载中...',
-      })
-      app.onRefresh(function (res) {
-       console.log(res)
-        wx.hideLoading()
-        that.setData({
-          userInfo: app.globalData.userInfo,
-        })
-      });
-    } else {
-      that.setData({
+    }, 1000
+    )
+    if (app.globalData.userInfo) {
+      this.setData({
         userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
       })
     }
-
   },
   getUserInfo: function(e) {
-    app.onLogin();
-    var that=this
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
     if (e.detail.errMsg == "getUserInfo:ok") {
       wx.navigateTo({
-        url: '/pages/totalPer/index',
+        url: '/pages/person/index',
       })
+    } else {
+      // wx.reLaunch({
+      //   url: '/pages/index/index',
+      // })
     }
- 
   },
   actIntro:function(){
     wx.navigateTo({
       url: '/pages/intro/index',
     })
   },
-  onPullDownRefresh: function () {
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.onShow();// 刷新页面
-    wx.hideNavigationBarLoading() //完成停止加载
-    wx.stopPullDownRefresh() //停止下拉刷新
-  },
-
-  onShareAppMessage: function (res) {
-    if(app.globalData.userInfo){
-      var id = app.globalData.userInfo.openid;
-      var name = app.globalData.userInfo.nickname;
-    }else{
-      app.onRefresh();
-      // var id = app.globalData.userInfo.openid;
-      // var name = app.globalData.userInfo.nickname;
-    }
-    return {
-      title: '来自'+name+'的一封信',
-      path: '/pages/friend/index?id='+id,
-    }
-  },
+  
 })

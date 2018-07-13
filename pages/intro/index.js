@@ -1,5 +1,4 @@
 // pages/intro/index.js
-const app = getApp();
 Page({
 
   /**

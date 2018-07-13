@@ -1,4 +1,4 @@
-<!--pages/hobby/index.wxml-->
+<!--pages/myHobby/index.wxml-->
 <view class='container'>
   <view class='head'>请填写你的兴趣爱好</view>
   <form bindsubmit="hobbyHandle" class='form'>
@@ -125,7 +125,7 @@
     </radio-group>
     <view class="db">
       <view class='foot'>越完善匹配成功率越高哦</view>
-      <button form-type="submit" class='primary' disabled="{{disabled}}">下一步</button>
+      <button form-type="submit" class='primary' disabled="{{disabled}}">保存</button>
     </view>
   </form>
 </view>

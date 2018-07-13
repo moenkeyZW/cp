@@ -8,12 +8,12 @@
       </label>
       <input placeholder='请填写你的微信号' placeholder-style="text-align:right" bindconfirm='wxInput' value='{{wxh}}' name="wxh" />
     </view> -->
-    <view class='makeup dd'>
+    <view class='makeup'>
       <picker bindchange="pickGender" value="{{index}}" range="{{genderArray}}">
         <view class="section">
           <view class='wrapper'>
             <label class="title">性别</label>
-            <input name="gender" class="content" value='{{userInfo.gender===1?"男":userInfo.gender===2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
+            <input name="gender" class="content" value='{{userInfo.gender===1?"男":userInfo.gender===2?"女":""}}' disabled/>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -24,7 +24,7 @@
         <view class="section">
           <view class='wrapper'>
             <label class="title">生日</label>
-            <view class='content date'>{{date}}</view>
+            <view class='content date'> {{date}}</view>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -32,7 +32,7 @@
         </view>
       </picker>
     </view>
-    <view class='makeup'>
+    <view  class='makeup'>
       <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name="region">
         <view class="section">
           <view class='wrapper'>
@@ -47,12 +47,12 @@
         </view>
       </picker>
     </view>
-    <view class='makeup'>
+    <view  class='makeup'>
       <picker bindchange="pickHeight" value='{{70||(userInfo.height? userInfo.height-100: "")||index}}' range="{{heightArr}}">
         <view class="section">
           <view class='wrapper'>
             <label class="title">身高</label>
-            <input name="height" type="number" class="{{userInfo.height>0?'cons':'con'}}" placeholder='请填写' placeholder-style='color:#b2b2b2' value='{{userInfo.height>0?userInfo.height:""}}' disabled/>
+            <input name="height" type="number" class="con" value='{{userInfo.height>0?userInfo.height:""}}' disabled/>
             <text class='unit' hidden='{{userInfo.height==0||userInfo.height==null}}'>cm</text>
           </view>
           <view class='right-arrow'>
@@ -64,7 +64,7 @@
         <view class="section">
           <view class='wrapper'>
             <label class="title">体重</label>
-            <input name="weight" type="number" class="{{userInfo.weight>0?'cons':'con'}}" placeholder='请填写' placeholder-style='color:#b2b2b2;' value='{{userInfo.weight>0?userInfo.weight:""}}' disabled/>
+            <input name="weight" type="number" class="con" value='{{userInfo.weight>0?userInfo.weight:""}}' disabled/>
             <text class='unit' hidden='{{userInfo.weight==0||userInfo.weight==null}}'>kg</text>
           </view>
           <view class='right-arrow'>
@@ -74,17 +74,16 @@
       </picker>
     </view>
 
-    <view class='makeup'>
+    <view  class='makeup'>
       <view class="section">
         <label class="title">学校</label>
         <input placeholder='请填写你的学校' class='col' placeholder-class="phcolor" bindconfirm='wxSchool' value='{{school}}' name="school" />
       </view>
       <picker bindchange="pickEducational" value="{{index}}" range="{{EducationalArray}}" name="educational">
-        <view class="section bor">
+        <view class="section">
           <view class='wrapper'>
             <label class="title">学历</label>
-            <view class='content date' wx:if="{{index}}">{{EducationalArray[index]}}</view>
-            <view class='content date' wx:else>请填写</view>
+            <view class='content date'>{{EducationalArray[index]}}</view>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -108,8 +107,10 @@
       <view class="self">我的优缺点</view>
       <textarea placeholder="请填写自己的优缺点" name="myYQ" />
     </view> -->
+
     <view class="db">
-      <button form-type="submit" class='primary' disabled="{{disabled}}">保存</button>
+      <view class="foot">资料填写完整后才能进入下一步</view>
+      <button form-type="submit" class='primary' disabled="{{disabled}}">下一步</button>
     </view>
   </form>
 

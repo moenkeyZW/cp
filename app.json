@@ -9,18 +9,14 @@
     "pages/task/index",
     "pages/my/index",
     "pages/introSelf/index",
-    "pages/friend/index",
-    "pages/fdCall/index",
-    "pages/totalPer/index"
+    "pages/myHobby/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "爱情公式",
     "navigationBarTextStyle": "#fff",
-    "backgroundColor": "#000000",
-    "enablePullDownRefresh": true,
-    "onReachBottomDistance": true
+    "backgroundColor": "#000000"
   },
   "tabBar": {
     "selectedColor": "#19b4f2",

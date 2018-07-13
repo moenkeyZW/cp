@@ -26,8 +26,8 @@ Page({
     heightArr: heightArr,
     weightArr: weightArr,
     EducationalArray:['高中/中专','专科','本科','研究生'],
-    date: '请填写',
-    region: ['省', '市', '区'],
+    date: '',
+    region: ['浙江省', '杭州市', '西湖区'],
     customItem: '全部',
   },
 
@@ -54,7 +54,7 @@ Page({
 
   personHandle: function (e) {
     console.log(e)
-    // let wxh = e.detail.value.wxh;
+    let wxh = e.detail.value.wxh;
     let gender = e.detail.value.gender;
     let birthday = e.detail.value.birthday;
     let region = e.detail.value.region;
@@ -63,18 +63,18 @@ Page({
     let school = e.detail.value.school;
     let educational = e.detail.value.educational;
     let mes = "";
-    // if (wxh === "") {
-    //   mes = "微信号"
-    //   wx.showModal({
-    //     title: '信息不完整',
-    //     content: `${mes}未填写，请补充`,
-    //     showCancel: false,
-    //     confirmText: '知道了',
-    //     success: function (res) {
-    //     }
-    //   })
-    //   return
-    // }
+    if (wxh === "") {
+      mes = "微信号"
+      wx.showModal({
+        title: '信息不完整',
+        content: `${mes}未填写，请补充`,
+        showCancel: false,
+        confirmText: '知道了',
+        success: function (res) {
+        }
+      })
+      return
+    }
     if (gender === "") {
       mes = "性别"
       wx.showModal({
@@ -87,7 +87,7 @@ Page({
       })
       return
     }
-    if (birthday === "" || birthday === "请填写") {
+    if (birthday === "") {
       mes = "生日"
       wx.showModal({
         title: '信息不完整',
@@ -99,7 +99,7 @@ Page({
       })
       return
     }
-    if (region === "" || region[0] == "省") {
+    if (region === "") {
       mes = "所在地"
       wx.showModal({
         title: '信息不完整',
@@ -160,6 +160,13 @@ Page({
       })
       return
     }
+
+
+        wx.navigateTo({
+            url: '/pages/hobby/index'
+        })
+  
+   
   },
 
   wxInput:function(e){

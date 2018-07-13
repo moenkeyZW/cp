@@ -44,6 +44,21 @@ Page({
       method: 'GET',
       success: function(res) {
         console.log(res);
+        for(var i in res.data.yundong){
+          res.data.yundong[i].checked=false;
+        }
+        for (var i in res.data.yinyue) {
+          res.data.yinyue[i].checked = false;
+        }
+        for (var i in res.data.dianying) {
+          res.data.dianying[i].checked = false;
+        }
+        for (var i in res.data.shuji) {
+          res.data.shuji[i].checked = false;
+        }
+        for (var i in res.data.chongwu) {
+          res.data.chongwu[i].checked = false;
+        }
         that.setData({
           sportList: res.data.yundong,
           musicList: res.data.yinyue,
@@ -130,6 +145,11 @@ Page({
       })
       return
     }
+
+    wx.navigateTo({
+      url: '/pages/mate/index'
+    })
+
 
   },
 
@@ -339,6 +359,8 @@ Page({
     })
 
   },
+
+
 
 
   chooseSport: function(e) {

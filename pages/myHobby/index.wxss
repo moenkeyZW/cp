@@ -1,0 +1,9 @@
+/* pages/myHobby/index.wxss */
+@import '../../css/common.wxss';
+@import '../person/index.wxss';
+@import '../mate/index.wxss';
+@import '../hobby/index.wxss';
+
+.db>button{
+  width:calc(100% - 380rpx);
+}

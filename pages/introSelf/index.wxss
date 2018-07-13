@@ -1,5 +1,1 @@
 /* pages/introSelf/index.wxss */
-@import '../totalPer/index.wxss';
-.form{
-  margin-top:40rpx;
-}
