@@ -1,6 +1,6 @@
 <!--pages/my/index.wxml-->
 <view class='container'>
-  <view class='cp'>
+  <view class='cp' bindtap='goPerson'>
     <view class='avatar'>
       <open-data type='userAvatarUrl'></open-data>
     </view>
@@ -8,11 +8,10 @@
       <view class='week'>一周CP</view>
       <view class='zw'>查看个人信息</view>
     </view>
-    <view class='right-arrows'>
+    <view class='right-arrow pp'>
       <image src='../../imgs/arrow.png'></image>
     </view>
   </view>
-
 
   <view class='makeup mrg' >
     <view class="section" bindtap='goIntroSelf'>

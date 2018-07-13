@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -63,6 +63,36 @@
 					"id": -1,
 					"name": "活动介绍",
 					"pathName": "pages/intro/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "好友助力",
+					"pathName": "pages/friend/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "打call成功",
+					"pathName": "pages/fdCall/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "综合个人",
+					"pathName": "pages/totalPer/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人介绍",
+					"pathName": "pages/introSelf/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "任务",
+					"pathName": "pages/task/index",
 					"query": ""
 				}
 			]

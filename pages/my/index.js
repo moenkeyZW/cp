@@ -10,7 +10,6 @@ Page({
    */
   data: {
     userInfo: {},
-    hasUserInfo: false,
   },
 
   /**
@@ -45,18 +44,18 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
   
+  },
+  goPerson:function(){
+    wx.navigateTo({
+      url: '/pages/person/index',
+    })
   },
   goIntroSelf:function(){
     wx.navigateTo({
@@ -65,7 +64,7 @@ Page({
   },
   goMyHobby:function(){
     wx.navigateTo({
-      url: '/pages/myHobby/index',
+      url: '/pages/hobby/index',
     })
   },
   goIntro:function(){

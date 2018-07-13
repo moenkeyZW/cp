@@ -5,8 +5,8 @@
 
 .right-arrow {
   position: absolute;
-  width: 16rpx;
-  height: 22rpx;
+  width: 15rpx;
+  height: 25rpx;
   right: 36rpx;
   top: 26rpx;
 }

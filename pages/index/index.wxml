@@ -3,16 +3,19 @@
   <view wx:if='{{isHaveJoin}}' class=" main">
     <view class='container'>
       <view class='header'>
-        <view>
+        <image src='../../imgs/bgS.png' class='hs'></image>
+        <view class='hemain'>
           <view class='suc'>报名成功</view>
           <view class='wait'>请等待揭晓结果</view>
-        </view>
+       
         <view class='Countdown'>匹配倒计时 {{timestamp}}</view>
+        <view class='bu'>
+          <text>开启提醒</text>
+          <image src='../../imgs/rtWhite.png' class='right'></image>
+        </view>
+         </view>
       </view>
-      <view class='bu'>
-        <text>开启提醒</text>
-        <image src='../../imgs/rtWhite.png' class='right'></image>
-      </view>
+
       <view class='status'>
         <view class='now'>当前预选身份:</view>
         <image src='../../imgs/badge.png' class='badge'></image>
@@ -77,9 +80,12 @@
       </view>
       <view class='friend'>
         <text>站台好友</text>
-        <label wx:for="{{friendArr}}" wx:key="{{index}}">
-          <view >
-            <image class='friAvatar' src='../../imgs/badge.png'></image>
+        <view class='dian' wx:if="{{friendArr.length>=8}}">
+          <image class='friAvatar' src='../../imgs/dian.png'></image>
+        </view>
+        <label wx:for="{{friendArr}}" wx:key="{{index}}" data-index="{{index}}">
+          <view class='ii' style='left:{{item.right}}'>
+            <image class='friAvatar' src='{{item.img}}'></image>
           </view>
         </label>
       </view>

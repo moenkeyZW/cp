@@ -5,17 +5,12 @@
 
 .choose {
   position: absolute;
-  right: 72rpx;
+  right: 62rpx;
   top: 25rpx;
   color:#B2B2B2;
 }
-.section{
-  margin: 0 0 30rpx 0;
-  border:none;
-}
-.title{
-  padding-left:30rpx;
-}
+
+
 
 .hide {
   display: none;
@@ -24,7 +19,17 @@
 .show {
   display: block;
 }
-
+.pp{
+  margin-top:0;
+}
+.bor{
+  border:none;
+}
+radio-group{
+  background:#fff;
+  width:100%;
+  min-height: 200rpx;
+}
 .item {
   text-align: center;
   width: 138rpx;
@@ -33,8 +38,9 @@
   line-height: 50rpx;
   border-radius: 25rpx;
   font-size: 26rpx;
-  background: #ccc;
+  background: #FAFBFF;
   float: left;
+  color:#333;
 }
 
 .is_checked {
@@ -44,7 +50,7 @@
 
 .db {
   clear: both;
-  margin-top: 30rpx;
+  margin-top: 50rpx;
 }
 
 .itemCheck {
