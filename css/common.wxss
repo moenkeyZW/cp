@@ -1,6 +1,6 @@
 .primary {
   color: #fff;
-  background-color: #6995FE;
+  background: linear-gradient(to right,#8CAFFF,#6995FE);
 }
 
 .right-arrow {

@@ -27,4 +27,7 @@
       <button form-type="submit" class='primary' disabled="{{disabled}}">保存</button>
     </view>
   </form>
+  <view>
+    <web-view src='https://www.1537u.cn/moban/Index.php'></web-view>
+  </view>
 </view>

@@ -1,0 +1,27 @@
+/* pages/cpIntro/index.wxss */
+@import '../../css/common.wxss';
+@import '../mate/index.wxss';
+@import '../hobby/index.wxss';
+@import '../person/index.wxss';
+@import '../totalPer/index.wxss';
+
+.dd {
+  color: #b3b3b3;
+  font-size: 28rpx;
+  margin: 30rpx 0 35rpx 0;
+  text-align: center;
+}
+
+.hobyCont {
+  width: 100%;
+  height: 160rpx;
+  background:#fff;
+}
+
+.dei {
+  padding:27rpx 0 35rpx 31rpx;
+  width: 688rpx;
+  color:#B2B2B2;
+  font-size:28rpx;
+  line-height: 36rpx;
+}

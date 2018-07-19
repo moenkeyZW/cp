@@ -6,7 +6,7 @@
       <view class="section">
         <view class='wrapper'>
           <label class="title">最小年龄</label>
-          <input name="ageMin" type="number" class="con" value='{{ageMin}}' disabled/>
+          <input name="ageMin" type="number" class="{{ageMin>0?'cons':'con'}}"  value='{{ageMin}}' disabled/>
           <text class='unit' hidden='{{ageMin==0||ageMin==null}}'>岁</text>
         </view>
         <view class='right-arrow'>
@@ -18,7 +18,7 @@
       <view class="section mgBot">
         <view class='wrapper'>
           <label class="title">最大年龄</label>
-          <input name="ageMax" type="number" class="con" value='{{ageMax}}' disabled/>
+          <input name="ageMax" type="number" class="{{ageMax>0?'cons':'con'}}"  value='{{ageMax}}' disabled/>
           <text class='unit' hidden='{{ageMax==0||ageMax==null}}'>岁</text>
         </view>
         <view class='right-arrow'>

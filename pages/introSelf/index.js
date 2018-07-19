@@ -17,7 +17,12 @@ Page({
 
   },
 
-
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.onShow();// 刷新页面
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -104,5 +109,14 @@ Page({
   introQue: function (e) {
     console.log(e)
   },
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '自定义转发标题',
+      path: '/page/user?id=123'
+    }
+  },
 })

@@ -1,4 +1,90 @@
 <!--pages/task/index.wxml-->
 <view class='container'>
-  <view bindtap='upload'>上传图片+</view>
+  <view wx:if="{{task==1}}">
+    <view class='noTask'>
+      <image src='../../imgs/noTask.png' class='bgTask'></image>
+    </view>
+  </view>
+  <view wx:if="{{task==2}}" class='main'>
+    <view class='think'>
+      <textarea placeholder="这一刻你的想法..." placeholder-style='color:#999;' name=" think" bindconfirm='yourThink' auto-height='true' />
+    </view>
+    <view class='upImg'>
+      <view wx:for="{{img_arr}}" wx:key="{{index}}" class='key'>
+        <view class='delete' catchtap="deleteImg" data-index="{{index}}">
+          <image src='../../imgs/x.png' class='x'></image>
+        </view>
+        <image src='{{item}}' data-index="{{index}}" class='cho pdd'></image>
+      </view>
+      <view bindtap='choose' hidden="{{img_arr.length>=4}}">
+        <image src='../../imgs/choose.png' class='cho'></image>
+      </view>
+    </view>
+    <view class='more'>最多只能上传4张图片</view>
+    <view class='tj'>
+      <button class='sub'>提交</button>
+    </view>
+  </view>
+  <view wx:if="{{task==3}}" class='main'>
+    <view class='think'>
+      <textarea placeholder="这一刻你的想法..." placeholder-style='color:#999;' name=" think" bindconfirm='yourThink' auto-height='true' />
+    </view>
+    <view class='upImg'>
+      <view wx:for="{{img_arr}}" wx:key="{{index}}" class='key'>
+        <view class='delete' catchtap="deleteImg" data-index="{{index}}">
+          <image src='../../imgs/x.png' class='x'></image>
+        </view>
+        <image src='{{item}}' data-index="{{index}}" class='cho pdd'></image>
+      </view>
+      <view bindtap='choose' hidden="{{img_arr.length>=4}}">
+        <image src='../../imgs/choose.png' class='cho'></image>
+      </view>
+    </view>
+    <view class='more'>最多只能上传4张图片</view>
+    <view class='tj'>
+      <button class='sub'>提交</button>
+    </view>
+  </view>
+  <view wx:if="{{task==4}}" class='lst'>
+    <view class='cpSuc'>
+      <image src='../../imgs/cpSuc.png' class='cpBg'></image>
+    </view>
+    <view class='group'>
+      <view wx:if="{{userInfo.gender==0 || cpInfo.gender==0}}" class='ab wo'>
+        <image src='../../imgs/nv.png' class='avatar'></image>
+        <image src='../../imgs/female.png' class='fm fe'></image>
+      </view>
+      <view wx:if="{{userInfo.gender==1 || cpInfo.gender==1}}" class='ab ma'>
+        <image src='../../imgs/nan.png' class='avatar'></image>
+        <image src='../../imgs/male.png' class='fm man'></image>
+      </view>
+      <view>
+        <image src='../../imgs/love.png' class='love'></image>
+      </view>
+    </view>
+    <view class='renwu'>
+      <view class='todayTask'>今日任务</view>
+      <view class='tian'>
+        <view class='tao'>
+          <view class='tsk'>
+            <view class='day'>第六天</view>
+            <view class='deto'>为对方发一条朋友圈，会发什么...</view>
+          </view>
+          <view class='qwc'>去完成</view>
+        </view>
+      </view>
+      <view class='todayTask mg'>其他任务</view>
+      <view class='tian pg' wx:for="{{taskArr}}" wx:key="{{index}}">
+        <view class='tao'>
+          <view class='tsk'>
+            <view class='day'>第一天</view>
+            <view class='deto'>为对方发一条朋友圈，会发什么...</view>
+          </view>
+          <view class='qwc'>去完成</view>
+        </view>
+      </view>
+    
+    </view>
+
+  </view>
 </view>

@@ -1,1 +1,137 @@
 /* pages/task/index.wxss */
+@import '../taskDetail/index.wxss';
+
+.main {
+  width: 100%;
+  margin-left: 60rpx;
+}
+
+.noTask {
+  margin-top: 100rpx;
+}
+
+.bgTask {
+  width: 690rpx;
+  height: 500rpx;
+}
+
+.think {
+  font-size: 30rpx;
+  color: #999;
+  margin: 63rpx 0 100rpx 0;
+}
+
+.cho {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.upImg {
+  display: flex;
+}
+
+.pdd {
+  margin-right: 30rpx;
+}
+
+.key {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: -22rpx;
+  right: 18rpx;
+}
+
+.x {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.more {
+  color: #abadb2;
+  font-size: 28rpx;
+  margin: 30rpx 0 60rpx 0;
+}
+
+.tj {
+  width: calc(100% - 60rpx);
+}
+
+.sub {
+  width: 690rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #6995ff;
+  border-radius: 44px;
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.renwu {
+  width: 100%;
+  margin: 65rpx 0 0 30rpx;
+}
+
+.todayTask {
+  color: #313133;
+  font-size: 36rpx;
+  line-height: 36rpx;
+  margin-bottom: 30rpx;
+  border-left: 4rpx solid #ffa557;
+  padding-left: 10rpx;
+}
+
+.tian {
+  width: 690rpx;
+  height: 128rpx;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px rgba(217, 228, 255, 0.4);
+}
+
+.tao {
+  width: 690rpx;
+  height: 128rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4rpx solid #6995fe;
+}
+
+.tsk {
+  margin-left: 30rpx;
+}
+
+.day {
+  color: #303133;
+  font-size: 30rpx;
+}
+
+.deto {
+  color: #aaacb3;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.qwc {
+  width: 120rpx;
+  height: 48rpx;
+  background: #6995fe;
+  border-radius: 8rpx;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin-right: 30rpx;
+}
+.mg{
+  margin:50rpx 0 30rpx 0;
+}
+.pg{
+  margin-bottom:10rpx;
+}
+.lst{
+  margin-bottom:30rpx;
+}

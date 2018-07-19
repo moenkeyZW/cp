@@ -13,18 +13,18 @@
         <view class="section">
           <view class='wrapper'>
             <label class="title">性别</label>
-            <input name="gender" class="content" value='{{userInfo.gender===1?"男":userInfo.gender===2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
+            <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
           </view>
         </view>
       </picker>
-      <picker mode="date" value="{{date}}" start="1978-01-01" end="2000-12-31" bindchange="DateChange" name="birthday">
+      <picker mode="date" value="{{userInfo.birthday}}" start="1978-01-01" end="2000-12-31" bindchange="DateChange" name="birthday">
         <view class="section">
           <view class='wrapper'>
             <label class="title">生日</label>
-            <view class='content date'>{{date}}</view>
+            <view class='content date'>{{userInfo.birthday}}</view>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -77,13 +77,13 @@
     <view class='makeup'>
       <view class="section">
         <label class="title">学校</label>
-        <input placeholder='请填写你的学校' class='col' placeholder-class="phcolor" bindconfirm='wxSchool' value='{{school}}' name="school" />
+        <input placeholder='请填写你的学校' class='col' placeholder-class="phcolor" bindconfirm='wxSchool' value='{{userInfo.school}}' name="school" />
       </view>
-      <picker bindchange="pickEducational" value="{{index}}" range="{{EducationalArray}}" name="educational">
+      <picker bindchange="pickEducational" value="{{index||userInfo.xueli}}" range="{{EducationalArray}}" name="educational">
         <view class="section bor">
           <view class='wrapper'>
             <label class="title">学历</label>
-            <view class='content date' wx:if="{{index}}">{{EducationalArray[index]}}</view>
+            <view class='content date' wx:if="{{index||userInfo.xueli}}">{{EducationalArray[index]||userInfo.xueli}}</view>
             <view class='content date' wx:else>请填写</view>
           </view>
           <view class='right-arrow'>

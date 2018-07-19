@@ -2,8 +2,6 @@
 @import '../../css/common.wxss';
 
 .container {
-  min-height: 100vh;
-  background-color: #f0eff5;
   align-items: flex-start;
 }
 

@@ -4,11 +4,18 @@ const app = getApp();
 
 Page({
   data: {
-    isHaveJoin:true,
-    userInfo: {},
+    status:4,
+    userInfo:{},
+    task:1,
+    cpInfo: {
+      nickname:'一千年以后',
+      age:22,
+      city:'杭州市',
+      area:'西湖区',
+    },
     timestamp: '',
     intervarID: 'clock',
-    status:'路人',
+    shenfen:'路人',
     percent:25,
     friendArr:[
       { img: '../../imgs/ta.png', right: '440rpx' },
@@ -107,7 +114,17 @@ Page({
     }
     return {
       title: '来自'+name+'的一封信',
-      path: '/pages/friend/index?id='+id,
+      path: '/pages/friend/index?id='+id+'&name='+name,
     }
+  },
+  uptask:function(){
+    wx.switchTab({
+      url: '/pages/task/index',
+    })
+  },
+  taskDetail:function(){
+    wx.navigateTo({
+      url: '/pages/taskDetail/index',
+    })
   },
 })

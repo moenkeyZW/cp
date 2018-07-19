@@ -19,8 +19,8 @@
 }
 .right-arrows {
   position: absolute;
-  width: 20rpx;
-  height: 30rpx;
+  width: 16rpx;
+  height: 25rpx;
   right: 36rpx;
   top: 60rpx;
 }
@@ -40,4 +40,11 @@
 }
 .mrg{
   margin-top:40rpx;
+}
+
+.tar{
+  width:40rpx;
+  height:40rpx;
+  align-self: center;
+  padding-right:18rpx;
 }

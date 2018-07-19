@@ -1,0 +1,142 @@
+/* pages/taskDetail/index.wxss */
+@import '../index/index.wxss';
+
+.cpSuc {
+  width: 100%;
+  margin-top: 50rpx;
+}
+
+.cpBg {
+  width: 707rpx;
+  height: 430rpx;
+  margin-left: 43rpx;
+}
+
+.task {
+  height: 480rpx;
+}
+
+.avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+  box-shadow: 4rpx 8rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.fm {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  bottom: 12rpx;
+}
+
+.group {
+  display: flex;
+  position: absolute;
+  left: 76rpx;
+  top: 375rpx;
+}
+
+.ab {
+  position: relative;
+}
+
+.ma {
+  right: 80rpx;
+}
+
+.wo {
+  right: 50rpx;
+}
+
+.fe {
+  left: 3rpx;
+}
+
+.man {
+  right: 3rpx;
+}
+
+.love {
+  position: absolute;
+  top: 38rpx;
+  right: 185rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.comment {
+  margin-top: 60rpx;
+  width: 630rpx;
+  display: flex;
+  border-bottom: 1rpx solid #e6e6e6;
+  padding-bottom: 30rpx;
+}
+
+.nan {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+}
+
+.info {
+  width: 499rpx;
+}
+
+.nAge {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tb {
+  width: 60rpx;
+  height: 24rpx;
+  background: #6995ff;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  margin: 9rpx 150rpx 0 0;
+}
+
+.bgr {
+  background: #fc6c7b;
+}
+
+.mAva {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.nick {
+  color: #576b95;
+  font-size: 30rpx;
+}
+
+.time {
+  color: #b3b3b3;
+  font-size: 20rpx;
+  line-height: 46rpx;
+}
+
+.mement {
+  color: #808080;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  margin: 10rpx 0 20rpx 0;
+}
+
+.item {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 4rpx;
+}
+
+.image {
+  display: flex;
+}
+
+.cot {
+  margin: 30rpx 0 86rpx 0;
+}

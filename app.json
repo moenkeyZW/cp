@@ -11,19 +11,22 @@
     "pages/my/index",
     "pages/introSelf/index",
     "pages/fdCall/index",
-    "pages/totalPer/index"
+    "pages/totalPer/index",
+    "pages/taskDetail/index",
+    "pages/cpIntro/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "爱情公式",
     "navigationBarTextStyle": "#fff",
-    "backgroundColor": "#000000",
+    "backgroundColor": "#FAFBFF",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": true
   },
   "tabBar": {
-    "selectedColor": "#19b4f2",
+    "selectedColor": "#6995ff",
+    "color":"#b3b3b3",
     "list": [
       {
         "pagePath": "pages/index/index",
