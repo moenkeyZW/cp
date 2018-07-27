@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -105,6 +105,12 @@
 					"id": -1,
 					"name": "CP资料详情",
 					"pathName": "pages/cpIntro/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提交任务",
+					"pathName": "pages/taskUp/index",
 					"query": ""
 				}
 			]

@@ -1,6 +1,6 @@
 <!--pages/my/index.wxml-->
 <view class='container'>
-  <view class='cp' bindtap='goPerson'>
+  <view class='cp' bindtap='goPerson'  style='border:1rpx solid #e5e5e5;'>
     <view class='avatar'>
       <open-data type='userAvatarUrl'></open-data>
     </view>
@@ -13,7 +13,7 @@
     </view>
   </view>
 
-  <view class='makeup mrg'>
+  <view class='makeup mrg' >
     <view class="section" bindtap='goIntroSelf'>
       <view class='wrapper'>
         <view class='tar'>
@@ -37,15 +37,7 @@
       </view>
     </view>
   </view>
-  <!-- <view class="section">
-    <view class='wrapper'>
-      <label class="title">CP匹配倾向</label>
-    </view>
-    <view class='right-arrow'>
-      <image src='../../imgs/arrow.png'></image>
-    </view>
-  </view> -->
-  <view class='makeup mrg' bindtap='goIntro'>
+  <view class='makeup mrg' bindtap='goIntro' >
     <view class="section bor">
       <view class='wrapper'>
         <view class='tar'>
@@ -58,7 +50,7 @@
       </view>
     </view>
   </view>
-  <view class='makeup mrg'>
+  <view class='makeup mrg'  >
     <view class="section bor">
       <view class='wrapper'>
         <view class='tar'>

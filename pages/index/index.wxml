@@ -4,7 +4,7 @@
     <view class='bgOne'>
       <image src='../../imgs/bgOne.png' class='bg'></image>
     </view>
-    <view class="userinfo">
+    <view class="again">
       <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>立即报名</button>
     </view>
     <view bindtap='actIntro' class='actintro'>
@@ -19,7 +19,6 @@
         <view class='hemain'>
           <view class='suc'>报名成功</view>
           <view class='wait'>请等待揭晓结果</view>
-
           <view class='Countdown'>匹配倒计时 {{timestamp}}</view>
           <view class='bu'>
             <text>开启提醒</text>
@@ -27,7 +26,6 @@
           </view>
         </view>
       </view>
-
       <view class='status'>
         <view class='now'>当前预选身份:</view>
         <image src='../../imgs/badge.png' class='badge'></image>
@@ -70,7 +68,7 @@
           </view>
         </block>
         <block>
-          <view wx:if="{{percent==100}}">
+          <view wx:if="{{percent>=100}}">
             <image src='../../imgs/yellowR.png' class='yuan juxing'></image>
           </view>
           <view wx:else>
@@ -87,19 +85,19 @@
       </view>
       <view class='next'>
         <text>距离下一等级还差</text>
-        <text class='number'>5</text>
+        <text class='number'>{{distance}}</text>
         <text>位</text>
       </view>
       <view class='friend'>
         <text>站台好友</text>
+        <label wx:for="{{friendArr}}" wx:key="{{index}}" data-index="{{index}}">
+          <view class='ii' style='left:{{right[index]}}rpx'>
+            <image class='friAvatar' src='{{item}}'></image>
+          </view>
+        </label>
         <view class='dian' wx:if="{{friendArr.length>=8}}">
           <image class='friAvatar' src='../../imgs/dian.png'></image>
         </view>
-        <label wx:for="{{friendArr}}" wx:key="{{index}}" data-index="{{index}}">
-          <view class='ii' style='left:{{item.right}}'>
-            <image class='friAvatar' src='{{item.img}}'></image>
-          </view>
-        </label>
       </view>
     </view>
     <view class='yqf'>邀请好友可提升等级，身份越高，匹配越优先，匹配成功概率越高</view>
@@ -107,27 +105,12 @@
       <button open-type='share' class='primary'>邀请好友站台</button>
     </view>
   </view>
+  <!-- 2是匹配成功 -->
   <view wx:if='{{status==2}}' class="container">
-    <view class='bgOne'>
-      <image src='../../imgs/bgThree.png' class='bg3'></image>
-    </view>
-    <view class="userinfo">
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>再次报名</button>
-    </view>
-  </view>
-  <view wx:if='{{status==3}}' class="container">
-    <view class='bgOne'>
-      <image src='../../imgs/cpfail.png' class='bg'></image>
-    </view>
-    <view class="again">
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
-    </view>
-  </view>
-  <view wx:if='{{status==4}}' class="container">
-    <view class='dk'>
+    <view class='dk' bindtap='lookcp'>
       <image src='../../imgs/people.png'></image>
       <view class='cpAvatar'>
-        <image src='{{userInfo.headimgurl}}' class='cpava'></image>
+        <image src='{{cpInfo.headimgurl}}' class='cpava'></image>
         <view class='nminfo'>
           <view class='cpname'>{{cpInfo.nickname}}</view>
           <view class='cpInfo'>{{cpInfo.age}}岁·{{cpInfo.city}}{{cpInfo.area}}</view>
@@ -151,26 +134,51 @@
       <view class='totask'>
         <image src='../../imgs/todayTask.png'></image>
       </view>
-      <view class='detail'>为对方发一条朋友圈</view>
+      <view class='detail'>{{title}}</view>
       <view class='yi'></view>
-      <view class='content'>为对方发一条朋友圈，会发什么样的朋友圈？可以试试发出来，如果暂时不方便，可以设置成只有对方一人可见~</view>
-      <view class='explain'>任务说明：将朋友圈照片截图，然后上传，即为任务完成！</view>
+      <view class='content'>{{detail}}</view>
+      <view class='explain'>{{explain}}</view>
     </view>
+
+    <!-- 任务 -->
     <block wx:if="{{task==1}}">
       <view class='sctask'>
         <button class='primary sc' bindtap='uptask'>上传任务</button>
       </view>
-      <view class='sclok'>上传成功可查看CP上传情况</view>
+      <view class='sclok' hidden='{{number===1}}'>上传成功可查看CP上传情况</view>
     </block>
-    <block wx:if="{{task==2}}">
-      <view class='sctask'>
-        <button class='primary sc' bindtap='uptask'>上传任务</button>
-      </view>
-    </block>
-    <block wx:if="{{task==3}}">
+    <!-- 任务已完成 -->
+    <block wx:if="{{task==2||task==3}}">
       <view class='sctask'>
         <button class='primary sc' bindtap='taskDetail'>查看任务详情</button>
       </view>
     </block>
+  </view>
+  <!-- 匹配失败 要求太高-->
+  <view wx:if='{{status==3}}' class="container">
+    <view class='bgOne'>
+      <image src='../../imgs/cpfail.png' class='bg'></image>
+    </view>
+    <view class="again">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
+    </view>
+  </view>
+  <!-- 匹配失败 等级太低-->
+  <view wx:if='{{status==4}}' class="container">
+    <view class='bgOne'>
+      <image src='../../imgs/fail.png' class='bg'></image>
+    </view>
+    <view class="again">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
+    </view>
+  </view>
+  <!-- 体验到期 -->
+  <view wx:if='{{status==5}}' class="container">
+    <view class='bgOne'>
+      <image src='../../imgs/bgThree.png' class='bg3'></image>
+    </view>
+    <view class="userinfo">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>再次报名</button>
+    </view>
   </view>
 </view>

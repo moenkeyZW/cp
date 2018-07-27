@@ -18,7 +18,7 @@
     </view>
     <view class='jieshao'>
       <image src='../../imgs/round.png' class='round'></image>
-      <text>成功组成CP后，正常情况下不允许接触CP关系，如真的</text>
+      <text>成功组成CP后，正常情况下不允许解除CP关系，如真的</text>
       <text style='padding-left:25rpx;'>不合适、需对方同意，联系客服解除关系</text>
     </view>
     <view class='jieshao'>

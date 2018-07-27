@@ -10,8 +10,6 @@
   color:#B2B2B2;
 }
 
-
-
 .hide {
   display: none;
 }

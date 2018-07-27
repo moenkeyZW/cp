@@ -78,6 +78,7 @@
   width: 100rpx;
   height: 100rpx;
   margin-right: 30rpx;
+  border-radius: 50%;
 }
 
 .info {
@@ -97,7 +98,7 @@
   color: #fff;
   font-size: 20rpx;
   text-align: center;
-  margin: 9rpx 150rpx 0 0;
+  margin: 9rpx 140rpx 0 0;
 }
 
 .bgr {
@@ -118,6 +119,7 @@
   color: #b3b3b3;
   font-size: 20rpx;
   line-height: 46rpx;
+  padding-right:25rpx;
 }
 
 .mement {

@@ -21,13 +21,12 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="sportChange" name="sport">
+      <checkbox-group bindchange="sportChange" name="sport">
         <label wx:for="{{sportList}}" wx:key="{{index}}" class="hide{{showView?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>
       </checkbox-group>
-    
       <view class="section" bindtap='chooseMusic'>
         <view class='wrapper'>
           <label class="title">喜欢的音乐(最多3项)</label>
@@ -46,13 +45,12 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="musicChange" name="music">
+      <checkbox-group bindchange="musicChange" name="music">
         <label wx:for="{{musicList}}" wx:key="{{index}}" class="hide{{showViewMusic?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>
       </checkbox-group>
-  
       <view class="section" bindtap='chooseMovie'>
         <view class='wrapper'>
           <label class="title">喜欢的电影(最多3项)</label>
@@ -71,13 +69,12 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="movieChange" name="movie">
+      <checkbox-group bindchange="movieChange" name="movie">
         <label wx:for="{{movieList}}" wx:key="{{index}}" class="hide{{showViewMovie?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>
       </checkbox-group>
-   
       <view class="section" bindtap='chooseBook'>
         <view class='wrapper'>
           <label class="title">喜欢的书籍(最多3项)</label>
@@ -96,13 +93,12 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="bookChange" name="book">
+      <checkbox-group bindchange="bookChange" name="book">
         <label wx:for="{{bookList}}" wx:key="{{index}}" class="hide{{showViewBook?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>
       </checkbox-group>
-  
       <view class="section bor" bindtap='choosePet'>
         <view class='wrapper'>
           <label class="title">喜欢的宠物(单选)</label>
@@ -121,8 +117,8 @@
           </view>
         </block>
       </view>
-      <radio-group  bindchange="petChange" name="pet"  class="hide{{showViewPet?'':'show'}}">
-        <label wx:for="{{petList}}" wx:key="{{index}}" >
+      <radio-group class="hide{{showViewPet?'':'show'}}" bindchange="petChange" name="pet">
+        <label wx:for="{{petList}}" wx:key="{{index}}">
           <radio value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>

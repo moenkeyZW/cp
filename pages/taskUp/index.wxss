@@ -1,0 +1,12 @@
+/* pages/taskUp/index.wxss */
+@import '../taskDetail/index.wxss';
+@import '../task/index.wxss';
+
+.container {
+  align-items: left;
+  padding-left:30rpx;
+}
+textarea{
+  width:100%;
+  padding-right:30rpx;
+}

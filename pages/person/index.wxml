@@ -13,7 +13,7 @@
         <view class="section">
           <view class='wrapper'>
             <label class="title">性别</label>
-            <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
+            <input name="gender" class="content cor" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -24,7 +24,7 @@
         <view class="section">
           <view class='wrapper'>
             <label class="title">生日</label>
-            <view class='content date'>{{userInfo.birthday}}</view>
+            <view class='content cor date'>{{userInfo.birthday}}</view>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -33,11 +33,11 @@
       </picker>
     </view>
     <view class='makeup'>
-      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name="region">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" name="region">
         <view class="section">
           <view class='wrapper'>
             <label class="title">所在地</label>
-            <view class="content date">
+            <view class="content cor date">
               {{region[0]}}，{{region[1]}}，{{region[2]}}
             </view>
           </view>
@@ -77,14 +77,14 @@
     <view class='makeup'>
       <view class="section">
         <label class="title">学校</label>
-        <input placeholder='请填写你的学校' class='col' placeholder-class="phcolor" bindconfirm='wxSchool' value='{{userInfo.school}}' name="school" />
+        <input placeholder='请填写你的学校' class='col cor' placeholder-class="phcolor cor" bindconfirm='wxSchool' value='{{userInfo.school}}' name="school" />
       </view>
       <picker bindchange="pickEducational" value="{{index||userInfo.xueli}}" range="{{EducationalArray}}" name="educational">
         <view class="section bor">
           <view class='wrapper'>
             <label class="title">学历</label>
-            <view class='content date' wx:if="{{index||userInfo.xueli}}">{{EducationalArray[index]||userInfo.xueli}}</view>
-            <view class='content date' wx:else>请填写</view>
+            <view class='content cor date' wx:if="{{index||userInfo.xueli}}">{{EducationalArray[index]||userInfo.xueli}}</view>
+            <view class='content cor date' wx:else>请填写</view>
           </view>
           <view class='right-arrow'>
             <image src='../../imgs/arrow.png'></image>
@@ -92,22 +92,6 @@
         </view>
       </picker>
     </view>
-    <!-- <view class="section intro">
-      <view class="self">自我介绍</view>
-      <textarea placeholder="请填写自我介绍" name="introduce" bindconfirm='introduceMyself' />
-    </view>
-    <view class="section intro">
-      <view class="self">最近在做的事</view>
-      <textarea placeholder="最近工作或学习上的事" name="nowDoing" />
-    </view>
-    <view class="section intro">
-      <view class="self">未来想做的事</view>
-      <textarea placeholder="现在想做但还没有做的事" name="futureDoing" />
-    </view>
-    <view class="section intro">
-      <view class="self">我的优缺点</view>
-      <textarea placeholder="请填写自己的优缺点" name="myYQ" />
-    </view> -->
     <view class="db">
       <button form-type="submit" class='primary' disabled="{{disabled}}">保存</button>
     </view>

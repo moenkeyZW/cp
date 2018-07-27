@@ -21,20 +21,19 @@ Page({
    */
   data: {
     userInfo: {
-      gender:'',
-      birthday:'请填写',
-      height:'',
-      weight:'',
-      school:'',
-      xueli:'',
+      gender: '',
+      birthday: '请填写',
+      height: '',
+      weight: '',
+      school: '',
+      xueli: '',
     },
     genderArray: ['男', '女'],
     ageArr: ageArr,
     heightArr: heightArr,
     weightArr: weightArr,
-    EducationalArray:['高中/中专','专科','本科','研究生'],
+    EducationalArray: ['高中/中专', '专科', '本科', '研究生'],
     region: ['省', '市', '区'],
-    customItem: '全部',
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -45,8 +44,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    var that=this;
+  onLoad: function (options) {
+    var that = this;
     wx.request({
       url: app.globalData.base_url +'wechat/info',
       data: {
@@ -76,13 +75,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   personHandle: function (e) {
     console.log(e)
-    // let wxh = e.detail.value.wxh;
     let gender = e.detail.value.gender;
     let birthday = e.detail.value.birthday;
     let region = e.detail.value.region;
@@ -94,18 +92,6 @@ Page({
     let school = e.detail.value.school;
     let educational = e.detail.value.educational;
     let mes = "";
-    // if (wxh === "") {
-    //   mes = "微信号"
-    //   wx.showModal({
-    //     title: '信息不完整',
-    //     content: `${mes}未填写，请补充`,
-    //     showCancel: false,
-    //     confirmText: '知道了',
-    //     success: function (res) {
-    //     }
-    //   })
-    //   return
-    // }
     if (gender === "") {
       mes = "性别"
       wx.showModal({
@@ -221,13 +207,13 @@ Page({
     })
   },
 
-  wxInput:function(e){
+  wxInput: function (e) {
     console.log(e)
     this.setData({
       wx: e.detail.value
     })
   },
-  wxSchool:function(e){
+  wxSchool: function (e) {
     this.setData({
       school: e.detail.value
     })
@@ -243,7 +229,6 @@ Page({
     })
   },
   bindRegionChange: function (e) {
-    console.log(e)
     this.setData({
       region: e.detail.value,
     })
@@ -258,9 +243,9 @@ Page({
       [`userInfo.weight`]: Number.parseInt(e.detail.value) + 30,
     })
   },
-  pickEducational:function(e){
+  pickEducational: function (e) {
     this.setData({
-      index:e.detail.value
+      index: e.detail.value
     })
   },
 

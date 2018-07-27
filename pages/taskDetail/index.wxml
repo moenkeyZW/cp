@@ -4,14 +4,30 @@
     <image src='../../imgs/cpSuc.png' class='cpBg'></image>
   </view>
   <view class='group'>
-    <view wx:if="{{userInfo.gender==0 || cpInfo.gender==0}}" class='ab wo'>
-      <image src='../../imgs/nv.png' class='avatar'></image>
-      <image src='../../imgs/female.png' class='fm fe'></image>
-    </view>
-    <view wx:if="{{userInfo.gender==1 || cpInfo.gender==1}}" class='ab ma'>
-      <image src='../../imgs/nan.png' class='avatar'></image>
-      <image src='../../imgs/male.png' class='fm man'></image>
-    </view>
+    <block wx:if="{{cpInfo.gender==2}}">
+      <view class='ab wo'>
+        <image src='{{cpInfo.avatar}}' class='avatar'></image>
+        <image src='../../imgs/female.png' class='fm fe'></image>
+      </view>
+    </block>
+    <block wx:if="{{userInfo.gender==2}}">
+      <view class='ab wo'>
+        <image src='{{userInfo.avatar}}' class='avatar'></image>
+        <image src='../../imgs/female.png' class='fm fe'></image>
+      </view>
+    </block>
+    <block wx:if="{{userInfo.gender==1}}">
+      <view class='ab ma'>
+        <image src='{{userInfo.avatar}}' class='avatar'></image>
+        <image src='../../imgs/male.png' class='fm man'></image>
+      </view>
+    </block>
+    <block wx:if="{{cpInfo.gender==1}}">
+      <view class='ab ma'>
+        <image src='{{cpInfo.avatar}}' class='avatar'></image>
+        <image src='../../imgs/male.png' class='fm man'></image>
+      </view>
+    </block>
     <view>
       <image src='../../imgs/love.png' class='love'></image>
     </view>
@@ -20,64 +36,75 @@
     <view class='totask'>
       <image src='../../imgs/todayTask.png'></image>
     </view>
-    <view class='detail'>为对方发一条朋友圈</view>
+    <view class='detail'>{{title}}</view>
     <view class='yi'></view>
-    <view class='content'>为对方发一条朋友圈，会发什么样的朋友圈？可以试试发出来，如果暂时不方便，可以设置成只有对方一人可见~</view>
-    <view class='explain'>任务说明：将朋友圈照片截图，然后上传，即为任务完成！</view>
+    <view class='content'>{{detail}}</view>
+    <view class='explain'>{{explain}}</view>
   </view>
   <block wx:if="{{task==1}}">
-    <view class='comment'>
+    <view class='comment' wx:if="{{cpInfo.imgurl}}">
       <view>
-        <image src='../../imgs/nan.png' class='nan'></image>
+        <image src='{{cpInfo.avatar}}' class='nan'></image>
       </view>
       <view class='info'>
         <view class='nAge'>
-          <view class='nick'>一千年以后</view>
-          <view class='tb'>
-            <image src='../../imgs/mAva.png' class='mAva'></image>
-            <text>22</text>
-          </view>
+          <view class='nick'>{{cpInfo.nickname}}</view>
+          <block wx:if="{{cpInfo.gender==2}}">
+            <view class='tb bgr'>
+              <image src='../../imgs/woAva.png' class='mAva'></image>
+              <text>{{cpInfo.age}}</text>
+            </view>
+          </block>
+          <block wx:if="{{cpInfo.gender==1}}">
+            <view class='tb'>
+              <image src='../../imgs/mAva.png' class='mAva'></image>
+              <text>{{cpInfo.age}}</text>
+            </view>
+          </block>
           <view class='time'>2018-7-19</view>
         </view>
-        <view class='mement'>这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想。</view>
+        <view class='mement'>{{cpInfo.content}}</view>
         <view class='image'>
-          <view wx:for="{{img_arr}}" wx:key="{{index}}">
-            <image src='{{item}}' class='item'></image>
+          <view wx:for="{{cpInfo.imgurl}}" wx:key="{{index}}" >
+            <image bindtap='cpPreviewImage' src='https://www.1537u.cn/Public/UploadWechat/{{item}}' class='item' data-img="{{item}}"></image>
           </view>
         </view>
       </view>
     </view>
-    <view class='comment cot'>
+    <view class='comment cot' wx:if="{{userInfo.imgurl}}">
       <view>
-        <image src='../../imgs/nv.png' class='nan'></image>
+        <image src='{{userInfo.avatar}}' class='nan'></image>
       </view>
       <view class='info'>
         <view class='nAge'>
-          <view class='nick'>两千年以前</view>
-          <view class='tb bgr'>
-            <image src='../../imgs/woAva.png' class='mAva'></image>
-            <text>22</text>
-          </view>
+          <view class='nick'>{{userInfo.nickname}}</view>
+          <block wx:if="{{userInfo.gender==2}}">
+            <view class='tb bgr'>
+              <image src='../../imgs/woAva.png' class='mAva'></image>
+              <text>{{userInfo.age}}</text>
+            </view>
+          </block>
+          <block wx:if="{{userInfo.gender==1}}">
+            <view class='tb'>
+              <image src='../../imgs/mAva.png' class='mAva'></image>
+              <text>{{userInfo.age}}</text>
+            </view>
+          </block>
           <view class='time'>2018-7-19</view>
         </view>
-        <view class='mement'>这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想法这一刻的想。</view>
+        <view class='mement'>{{userInfo.content}}</view>
         <view class='image'>
-          <view wx:for="{{img_arr}}" wx:key="{{index}}">
-            <image src='{{item}}' class='item'></image>
+          <view wx:for="{{userInfo.imgurl}}" wx:key="{{index}}" >
+            <image bindtap='previewImage' src='https://www.1537u.cn/Public/UploadWechat/{{item}}' class='item' data-img="{{item}}"></image>
           </view>
         </view>
       </view>
     </view>
   </block>
-  <block wx:if="{{task==2}}">
+  <block wx:if="{{task==0}}">
     <view class='sctask'>
       <button class='primary sc' bindtap='uptask'>上传任务</button>
     </view>
-    <view class='sclok'>上传成功可查看CP上传情况</view>
-  </block>
-  <block wx:if="{{task==3}}">
-    <view class='sctask'>
-      <button class='primary sc' bindtap='uptask'>上传任务</button>
-    </view>
+    <view class='sclok' hidden='{{num==1}}'>上传成功可查看CP上传情况</view>
   </block>
 </view>

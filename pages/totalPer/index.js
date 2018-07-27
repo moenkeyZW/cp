@@ -20,15 +20,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    userInfo: {
+      gender: '',
+      birthday: '请填写',
+      region: ['省', '市', '区'],
+      height: '',
+      weight: '',
+      school: '',
+      xueli: '请填写',
+      motion: '',
+      motion_value: '',
+      music: '',
+      music_value: '',
+      film: '',
+      film_value: '',
+      books: '',
+      books_value: '',
+      pet: '',
+      pet_value: '',
+      self: '',
+      what: '',
+      thing: '',
+      trait: ''
+    },
     genderArray: ['男', '女'],
     ageArr: ageArr,
     heightArr: heightArr,
     weightArr: weightArr,
     EducationalArray: ['高中/中专', '专科', '本科', '研究生'],
-    date: '请填写',
-    region: ['省', '市', '区'],
-    customItem: '全部',
     showView: true,
     showViewMusic: true,
     showViewMovie: true,
@@ -51,26 +70,25 @@ Page({
     petChoose: true,
 
   },
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.onShow();// 刷新页面
+    this.onShow(); // 刷新页面
     wx.hideNavigationBarLoading() //完成停止加载
     wx.stopPullDownRefresh() //停止下拉刷新
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that=this;
+  onLoad: function(options) {
+    var that = this;
     wx.request({
-      url: 'https://www.1537u.cn/admin/wechat/lable.html',
+      url: app.globalData.base_url + 'wechat/lable',
       data: '',
       header: {
         'content-type': 'application/json'
       },
       method: 'GET',
-      success: function (res) {
-        console.log(res);
+      success: function(res) {
         that.setData({
           sportList: res.data.yundong,
           musicList: res.data.yinyue,
@@ -87,40 +105,104 @@ Page({
     showViewPet: (options.showViewPet == "true" ? true : false);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function() {
+    var that = this;
+    wx.request({
+      url: app.globalData.base_url + 'wechat/personal',
+      data: {
+        openid: wx.getStorageSync('openid'),
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'GET',
+      success: function(res) {
+        console.log(res);
+        if (res.data.info) {
+          that.setData({
+            userInfo: res.data.info,
+          })
+        }
+        if (res.data.info.motion) {
+          that.setData({
+            sportArr: res.data.info.motion,
+            sportChoose: false,
+          })
+        }
+        if (res.data.info.music) {
+          that.setData({
+            musicArr: res.data.info.music,
+            musicChoose: false,
+          })
+        }
+        if (res.data.info.film) {
+          that.setData({
+            movieArr: res.data.info.film,
+            movieChoose: false,
+          })
+        }
+        if (res.data.info.books) {
+          that.setData({
+            bookArr: res.data.info.books,
+            bookChoose: false,
+          })
+        }
+        if (res.data.info.pet) {
+          that.setData({
+            petArr: res.data.info.pet,
+            petChoose: false,
+          })
+        }
+      },
+    })
   },
 
-  personHandle: function (e) {
+  personHandle: function(e) {
     console.log(e)
-    let wxh = e.detail.value.wxh;
+    var that = this;
     let gender = e.detail.value.gender;
     let birthday = e.detail.value.birthday;
     let region = e.detail.value.region;
+    let province = region[0];
+    let city = region[1];
+    let area = region[2];
     let height = e.detail.value.height;
     let weight = e.detail.value.weight;
     let school = e.detail.value.school;
     let educational = e.detail.value.educational;
-    let sport = e.detail.value.sport;
-    let music = e.detail.value.music;
-    let movie = e.detail.value.movie;
-    let book = e.detail.value.book;
-    let pet = e.detail.value.pet;
-    let intro=e.detail.value.introduce;
+    if (that.data.userInfo.motion_value && e.detail.value.sport[0] === undefined) {
+      var sport = that.data.userInfo.motion_value.join(",")
+    } else {
+      var sport = e.detail.value.sport.join(",");
+    }
+    if (that.data.userInfo.music_value && e.detail.value.music[0] === undefined) {
+      var music = that.data.userInfo.music_value.join(",")
+    } else {
+      var music = e.detail.value.music.join(",");
+    }
+    if (that.data.userInfo.film_value && e.detail.value.movie[0] === undefined) {
+      var movie = that.data.userInfo.film_value.join(",")
+    } else {
+      var movie = e.detail.value.movie.join(",");
+    }
+    if (that.data.userInfo.books_value && e.detail.value.book[0] === undefined) {
+      var book = that.data.userInfo.books_value.join(",")
+    } else {
+      var book = e.detail.value.book.join(",");
+    }
+    if (that.data.userInfo.pet_value && e.detail.value.pet === "") {
+      var pet = that.data.userInfo.pet_value
+    } else {
+      var pet = e.detail.value.pet;
+    }
+    let intro = e.detail.value.introduce;
     let future = e.detail.value.futureDoing;
     let now = e.detail.value.nowDoing;
-    let youdian = e.detail.value.myYou;
-    let quedian = e.detail.value.myQue;
+    let yq = e.detail.value.myYQ;
     let mes = "";
     if (gender === "") {
       mes = "性别"
@@ -129,32 +211,29 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
-    if (birthday === "" || birthday ==="请填写") {
+    if (birthday === "" || birthday === "请填写") {
       mes = "生日"
       wx.showModal({
         title: '信息不完整',
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
-    if (region === "" || region[0]=="省") {
+    if (region === "" || region[0] == "省") {
       mes = "所在地"
       wx.showModal({
         title: '信息不完整',
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
@@ -166,8 +245,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
@@ -178,8 +256,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
@@ -190,8 +267,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
@@ -202,8 +278,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) {
-        }
+        success: function(res) {}
       })
       return
     }
@@ -214,7 +289,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -225,7 +300,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -236,7 +311,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -247,7 +322,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -259,7 +334,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -270,7 +345,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -281,7 +356,7 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
@@ -292,40 +367,56 @@ Page({
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
-    if (youdian === "") {
-      mes = "我的优点"
+    if (yq === "") {
+      mes = "我的优缺点"
       wx.showModal({
         title: '信息不完整',
         content: `${mes}未填写，请补充`,
         showCancel: false,
         confirmText: '知道了',
-        success: function (res) { }
+        success: function(res) {}
       })
       return
     }
-    if (quedian === "") {
-      mes = "我的缺点"
-      wx.showModal({
-        title: '信息不完整',
-        content: `${mes}未填写，请补充`,
-        showCancel: false,
-        confirmText: '知道了',
-        success: function (res) { }
-      })
-      return
-    }
+    gender = gender === '男' ? 1 : 2
+    wx.request({
+      url: app.globalData.base_url + 'wechat/save_personal',
+      data: {
+        openid: wx.getStorageSync('openid'),
+        sex: gender,
+        birthday: birthday,
+        province: province,
+        city: city,
+        area: area,
+        height: height,
+        weight: weight,
+        school: school,
+        xueli: educational,
+        motion: sport,
+        music: music,
+        film: movie,
+        books: book,
+        pet: pet,
+        self: intro,
+        what: future,
+        thing: now,
+        trait: yq
+      },
+      success: function(res) {
+        wx.navigateTo({
+          url: '/pages/mate/index'
+        })
+      }
 
-    wx.navigateTo({
-      url: '/pages/mate/index'
     })
 
 
   },
-  sportChange: function (e) {
+  sportChange: function(e) {
     var sportArr = '';
     var that = this
     var items = that.data.sportList;
@@ -343,7 +434,7 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
-          success: function (res) { }
+          success: function(res) {}
         })
         return
       }
@@ -369,7 +460,7 @@ Page({
 
   },
 
-  musicChange: function (e) {
+  musicChange: function(e) {
     var musicArr = '';
     var that = this
     var items = that.data.musicList;
@@ -387,7 +478,7 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
-          success: function (res) { }
+          success: function(res) {}
         })
         return
       }
@@ -412,7 +503,7 @@ Page({
     })
 
   },
-  movieChange: function (e) {
+  movieChange: function(e) {
     var movieArr = '';
     var that = this
     var items = that.data.movieList;
@@ -430,7 +521,7 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
-          success: function (res) { }
+          success: function(res) {}
         })
         return
       }
@@ -455,7 +546,7 @@ Page({
     })
 
   },
-  bookChange: function (e) {
+  bookChange: function(e) {
     var bookArr = '';
     var that = this
     var items = that.data.bookList;
@@ -473,7 +564,7 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
-          success: function (res) { }
+          success: function(res) {}
         })
         return
       }
@@ -497,7 +588,7 @@ Page({
       bookArr: bookArr
     })
   },
-  petChange: function (e) {
+  petChange: function(e) {
     var petArr = '';
     var that = this
     var items = that.data.petList;
@@ -532,92 +623,101 @@ Page({
 
   },
 
-  chooseSport: function (e) {
+  chooseSport: function(e) {
     var that = this;
     that.setData({
       showView: (!that.data.showView)
     })
   },
-  chooseMovie: function (e) {
+  chooseMovie: function(e) {
     var that = this;
     that.setData({
       showViewMovie: (!that.data.showViewMovie)
     })
   },
-  chooseBook: function (e) {
+  chooseBook: function(e) {
     var that = this;
     that.setData({
       showViewBook: (!that.data.showViewBook)
     })
   },
-  chooseMusic: function (e) {
+  chooseMusic: function(e) {
     var that = this;
     that.setData({
       showViewMusic: (!that.data.showViewMusic)
     })
   },
-  choosePet: function (e) {
+  choosePet: function(e) {
     var that = this;
     that.setData({
       showViewPet: (!that.data.showViewPet)
     })
   },
 
-  wxInput: function (e) {
+  wxInput: function(e) {
     console.log(e)
     this.setData({
       wx: e.detail.value
     })
   },
-  wxSchool: function (e) {
+  wxSchool: function(e) {
     this.setData({
-      school: e.detail.value
+      [`userInfo.school`]: e.detail.value
     })
   },
-  pickGender: function (e) {
+  pickGender: function(e) {
     this.setData({
       [`userInfo.gender`]: Number.parseInt(e.detail.value) + 1
     })
   },
-  DateChange: function (e) {
+  DateChange: function(e) {
     this.setData({
-      date: e.detail.value
+      [`userInfo.birthday`]: e.detail.value
     })
   },
-  bindRegionChange: function (e) {
-
+  bindRegionChange: function(e) {
     this.setData({
-      region: e.detail.value
+      [`userInfo.region`]: e.detail.value
     })
   },
-  pickHeight: function (e) {
+  pickHeight: function(e) {
     this.setData({
       [`userInfo.height`]: Number.parseInt(e.detail.value) + 100,
     })
   },
-  pickWeight: function (e) {
+  pickWeight: function(e) {
     this.setData({
       [`userInfo.weight`]: Number.parseInt(e.detail.value) + 30,
     })
   },
-  pickEducational: function (e) {
+  pickEducational: function(e) {
+    var xl = '';
+    if (e.detail.value == 0) {
+      xl = '高中/中专'
+    }
+    if (e.detail.value == 1) {
+      xl = '专科'
+    }
+    if (e.detail.value == 2) {
+      xl = '本科'
+    }
+    if (e.detail.value == 3) {
+      xl = '研究生'
+    }
     this.setData({
-      index: e.detail.value
+      [`userInfo.xueli`]: xl
     })
   },
-  introYself: function (e) {
+  introYself: function(e) {
     console.log(e)
   },
-  introFutu: function (e) {
+  introFutu: function(e) {
     console.log(e)
   },
-  introNow: function (e) {
+  introNow: function(e) {
     console.log(e)
   },
-  introYou: function (e) {
-    console.log(e)
-  },
-  introQue: function (e) {
+  introYQ: function(e) {
     console.log(e)
   },
 

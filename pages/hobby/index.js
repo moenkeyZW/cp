@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo:{},
     showView: true,
     showViewMusic: true,
     showViewMovie: true,
@@ -40,24 +41,6 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    wx.request({
-      url: 'https://www.1537u.cn/admin/wechat/lable.html',
-      data: '',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'GET',
-      success: function(res) {
-        console.log(res);
-        that.setData({
-          sportList: res.data.yundong,
-          musicList: res.data.yinyue,
-          movieList: res.data.dianying,
-          bookList: res.data.shuji,
-          petList: res.data.chongwu
-        })
-      },
-    })
     showView: (options.showView == "true" ? true : false);
     showViewMusic: (options.showViewMusic == "true" ? true : false);
     showViewMovie: (options.showViewMovie == "true" ? true : false);
@@ -69,15 +52,88 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that=this;
+    wx.request({
+      url: app.globalData.base_url + 'wechat/hobby',
+      data: {
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          sportList: res.data.yundong,
+          musicList: res.data.yinyue,
+          movieList: res.data.dianying,
+          bookList: res.data.shuji,
+          petList: res.data.chongwu
+        })
+        if (res.data.info) {
+          that.setData({
+            userInfo: res.data.info,
+          })
+        }
+        if (res.data.info.motion) {
+          that.setData({
+            sportArr: res.data.info.motion,
+            sportChoose: false,
+          })
+        }
+        if (res.data.info.music) {
+          that.setData({
+            musicArr: res.data.info.music,
+            musicChoose: false,
+          })
+        }
+        if (res.data.info.film) {
+          that.setData({
+            movieArr: res.data.info.film,
+            movieChoose: false,
+          })
+        }
+        if (res.data.info.books) {
+          that.setData({
+            bookArr: res.data.info.books,
+            bookChoose: false,
+          })
+        }
+        if (res.data.info.pet) {
+          that.setData({
+            petArr: res.data.info.pet,
+            petChoose: false,
+          })
+        }
+      }
 
+    })
   },
 
   hobbyHandle: function(e) {
-    let sport = e.detail.value.sport;
-    let music = e.detail.value.music;
-    let movie = e.detail.value.movie;
-    let book = e.detail.value.book;
-    let pet = e.detail.value.pet;
+    var that=this;
+    if (that.data.userInfo.motion_value && e.detail.value.sport[0] === undefined) {
+      var sport = that.data.userInfo.motion_value.join(",")
+    } else {
+      var sport = e.detail.value.sport.join(",");
+    }
+    if (that.data.userInfo.music_value && e.detail.value.music[0] === undefined) {
+      var music = that.data.userInfo.music_value.join(",")
+    } else {
+      var music = e.detail.value.music.join(",");
+    }
+    if (that.data.userInfo.film_value && e.detail.value.movie[0] === undefined) {
+      var movie = that.data.userInfo.film_value.join(",")
+    } else {
+      var movie = e.detail.value.movie.join(",");
+    }
+    if (that.data.userInfo.books_value && e.detail.value.book[0] === undefined) {
+      var book = that.data.userInfo.books_value.join(",")
+    } else {
+      var book = e.detail.value.book.join(",");
+    }
+    if (that.data.userInfo.pet_value && e.detail.value.pet === "") {
+      var pet = that.data.userInfo.pet_value
+    } else {
+      var pet = e.detail.value.pet;
+    }
     let mes = "";
     if (sport[0] === undefined) {
       mes = "喜欢的运动"
@@ -135,7 +191,29 @@ Page({
       })
       return
     }
+    wx.request({
+      url: app.globalData.base_url + 'wechat/save_hobby',
+      data: {
+        motion: sport,
+        music: music,
+        film: movie,
+        books: book,
+        pet:pet,
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.statusCode === 200) {
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 1500,
+            mask: true,
+          })
+        }
+      }
 
+    })
   },
 
   sportChange: function(e) {

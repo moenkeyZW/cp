@@ -9,34 +9,34 @@
       </label>
       <input placeholder='请填写你的微信号' placeholder-style="text-align:right" bindconfirm='wxInput' value='{{wxh}}' name="wxh" />
     </view> -->
-    <picker bindchange="pickGender" value="{{index}}" range="{{genderArray}}">
+    <picker bindchange="pickGender" value="{{index}}" range="{{genderArray}}" style='border-top:1rpx solid #e5e5e5;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">性别</label>
-          <input name="gender" class="content" value='{{userInfo.gender===1?"男":userInfo.gender===2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
+          <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
         </view>
         <view class='right-arrow'>
           <image src='../../imgs/arrow.png'></image>
         </view>
       </view>
     </picker>
-    <picker mode="date" value="{{date}}" start="1978-01-01" end="2000-12-31" bindchange="DateChange" name="birthday">
+    <picker mode="date" value="{{userInfo.birthday}}" start="1978-01-01" end="2000-12-31" bindchange="DateChange" name="birthday">
       <view class="section">
         <view class='wrapper'>
           <label class="title">生日</label>
-          <view class='content date'>{{date}}</view>
+          <view class='content cor date'>{{userInfo.birthday}}</view>
         </view>
         <view class='right-arrow'>
           <image src='../../imgs/arrow.png'></image>
         </view>
       </view>
     </picker>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name="region">
+    <picker mode="region" bindchange="bindRegionChange" value="{{userInfo.region}}" name="region">
       <view class="section">
         <view class='wrapper'>
           <label class="title">所在地</label>
-          <view class="content date">
-            {{region[0]}}，{{region[1]}}，{{region[2]}}
+          <view class="content cor date">
+            {{userInfo.region[0]}}，{{userInfo.region[1]}}，{{userInfo.region[2]}}
           </view>
         </view>
         <view class='right-arrow'>
@@ -68,18 +68,17 @@
         </view>
       </view>
     </picker>
-    <view class='makeup'>
+    <view class='ms'>
       <view class="section">
         <label class="title">学校</label>
-        <input placeholder='请填写你的学校' placeholder-style='color:#b2b2b2' class='col' bindconfirm='wxSchool' value='{{school}}' name="school" />
+        <input placeholder='请填写你的学校' placeholder-style='color:#b2b2b2' class='col cor' bindconfirm='wxSchool' value='{{userInfo.school}}' name="school" />
       </view>
     </view>
-    <picker bindchange="pickEducational" value="{{index}}" range="{{EducationalArray}}" name="educational">
+    <picker bindchange="pickEducational" value="{{userInfo.xueli}}" range="{{EducationalArray}}" name="educational" style='border-bottom:1rpx solid #e5e5e5;'>
       <view class="section bor">
         <view class='wrapper'>
           <label class="title">学历</label>
-          <view class='content date' wx:if="{{index}}">{{EducationalArray[index]}}</view>
-          <view class='content date' wx:else>请填写</view>
+          <view class='content cor date' >{{userInfo.xueli}}</view>
         </view>
         <view class='right-arrow'>
           <image src='../../imgs/arrow.png'></image>
@@ -107,13 +106,12 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="sportChange" name="sport">
+      <checkbox-group bindchange="sportChange" name="sport">
         <label wx:for="{{sportList}}" wx:key="{{index}}" class="hide{{showView?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>
       </checkbox-group>
-
       <view class="section" bindtap='chooseMusic'>
         <view class='wrapper'>
           <label class="title">喜欢的音乐(最多3项)</label>
@@ -132,7 +130,7 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="musicChange" name="music">
+      <checkbox-group bindchange="musicChange" name="music">
         <label wx:for="{{musicList}}" wx:key="{{index}}" class="hide{{showViewMusic?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
@@ -156,7 +154,7 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="movieChange" name="movie">
+      <checkbox-group bindchange="movieChange" name="movie">
         <label wx:for="{{movieList}}" wx:key="{{index}}" class="hide{{showViewMovie?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
@@ -180,7 +178,7 @@
           </view>
         </block>
       </view>
-      <checkbox-group  bindchange="bookChange" name="book">
+      <checkbox-group bindchange="bookChange" name="book">
         <label wx:for="{{bookList}}" wx:key="{{index}}" class="hide{{showViewBook?'':'show'}}">
           <checkbox value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
@@ -205,7 +203,7 @@
         </block>
       </view>
       <radio-group class="hide{{showViewPet?'':'show'}}" bindchange="petChange" name="pet">
-        <label wx:for="{{petList}}" wx:key="{{index}}" >
+        <label wx:for="{{petList}}" wx:key="{{index}}">
           <radio value="{{item.value}}" name="{{item.name}}" checked="{{item.checked}}" hidden='true' />
           <view class="item {{item.checked?'is_checked':''}}">{{item.name}}</view>
         </label>
@@ -215,23 +213,19 @@
     <view class='makeup'>
       <view class="section intro">
         <view class="self">我的成长经历</view>
-        <textarea placeholder="请填写自我介绍" placeholder-style='color:#B2B2B2;' name="introduce" bindconfirm='introYself'auto-height='true' />
+        <textarea placeholder="请填写自我介绍" value='{{userInfo.self}}' placeholder-style='color:#B2B2B2;' name="introduce" bindconfirm='introYself' auto-height='true' />
       </view>
       <view class="section intro">
         <view class="self">我的未来规划</view>
-        <textarea placeholder="未来规划" placeholder-style='color:#B2B2B2;' name="futureDoing" bindconfirm='introFutu' auto-height='true'/>
+        <textarea placeholder="未来规划" value='{{userInfo.what}}' placeholder-style='color:#B2B2B2;' name="futureDoing" bindconfirm='introFutu' auto-height='true' />
       </view>
       <view class="section intro">
         <view class="self">我最近在做的事</view>
-        <textarea placeholder="最近正在做啥" placeholder-style='color:#B2B2B2;' name="nowDoing" bindconfirm='introNow' auto-height='true'/>
+        <textarea placeholder="最近正在做啥" value='{{userInfo.thing}}' placeholder-style='color:#B2B2B2;' name="nowDoing" bindconfirm='introNow' auto-height='true' />
       </view>
-      <view class="section intro">
-        <view class="self">我的优点</view>
-        <textarea placeholder="请填写自己的优点" placeholder-style='color:#B2B2B2;' name="myYou" bindconfirm='introYou' auto-height='true' />
-      </view>
-       <view class="section intro">
-        <view class="self">我的缺点</view>
-        <textarea placeholder="请填写自己的缺点" placeholder-style='color:#B2B2B2;' name="myQue" bindconfirm='introQue' auto-height='true' />
+      <view class="section intro bor">
+        <view class="self">我的优缺点</view>
+        <textarea placeholder="请填写自己的优点" value='{{userInfo.trait}}' placeholder-style='color:#B2B2B2;' name="myYQ" bindconfirm='introYQ' auto-height='true' />
       </view>
     </view>
     <view class="db">

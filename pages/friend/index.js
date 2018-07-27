@@ -9,6 +9,7 @@ Page({
     nickName: 'XXX',
     status:'小咖',
     percent: 25,
+    id:'',
   },
 
   /**
@@ -16,7 +17,13 @@ Page({
    */
   onLoad: function(options) {
     console.log(options)
+    var that=this;
     let id = options.id;
+    let name=options.name;
+    that.setData({
+      id:id,
+      nickName:name  
+    })
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -30,21 +37,20 @@ Page({
    */
   onShow: function() {
     var that = this;
-    var userInfo = app.globalData.userInfo;
-    if (!app.globalData.userInfo) {
-      app.onRefresh(function (res) {
+    var id=that.data.id;
+    wx.request({
+      url: app.globalData.base_url + 'wechat/share',
+      data: {
+        openid:id,
+        hy_openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
         console.log(res)
-        that.setData({
-          nickName: res.nickname,
-        })
-      });
-    } else {
-      that.setData({
-        nickname: app.globalData.userInfo.nickname,
-      })
-    }
+      }
+    })
   },
   callFriend: function(e) {
+    console.log(e)
     app.onLogin();
     var that = this
     if (e.detail.errMsg == "getUserInfo:ok") {

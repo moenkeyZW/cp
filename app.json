@@ -13,12 +13,13 @@
     "pages/fdCall/index",
     "pages/totalPer/index",
     "pages/taskDetail/index",
-    "pages/cpIntro/index"
+    "pages/cpIntro/index",
+    "pages/taskUp/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#000000",
-    "navigationBarTitleText": "爱情公式",
+    "navigationBarTitleText": "恋爱公式C",
     "navigationBarTextStyle": "#fff",
     "backgroundColor": "#FAFBFF",
     "enablePullDownRefresh": true,

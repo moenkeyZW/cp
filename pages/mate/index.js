@@ -95,12 +95,24 @@ Page({
       })
       return
     }
+    wx.request({
+      url: app.globalData.base_url + 'wechat/save_condition',
+      data: {
+        min_age: ageMin,
+        max_age: ageMax,
+        area: area,
+        xueli: edu,
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log(res)
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      }
 
-    wx.switchTab({
-      url: '/pages/index/index'
     })
-
-
+ 
   },
   pickMinAge: function (e) {
     this.setData({

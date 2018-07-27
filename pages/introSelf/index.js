@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo:{},
   },
 
   /**
@@ -27,15 +27,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that=this;
+    wx.request({
+      url: app.globalData.base_url + 'wechat/self',
+      data: {
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          userInfo: res.data.info,
+        })
+      }
+    })
   },
   
   introSelf:function(e){
+    console.log(e)
     let intro = e.detail.value.introduce;
     let future = e.detail.value.futureDoing;
     let now = e.detail.value.nowDoing;
-    let youdian = e.detail.value.myYou;
-    let quedian = e.detail.value.myQue;
+    let yq = e.detail.value.myYQ;
     let mes = "";
     if (intro === "") {
       mes = "我的成长经历"
@@ -70,8 +82,8 @@ Page({
       })
       return
     }
-    if (youdian === "") {
-      mes = "我的优点"
+    if (yq === "") {
+      mes = "我的优缺点"
       wx.showModal({
         title: '信息不完整',
         content: `${mes}未填写，请补充`,
@@ -81,17 +93,28 @@ Page({
       })
       return
     }
-    if (quedian === "") {
-      mes = "我的缺点"
-      wx.showModal({
-        title: '信息不完整',
-        content: `${mes}未填写，请补充`,
-        showCancel: false,
-        confirmText: '知道了',
-        success: function (res) { }
-      })
-      return
-    }
+    wx.request({
+      url: app.globalData.base_url + 'wechat/save_self',
+      data: {
+        self: intro,
+        what: future,
+        thing: now,
+        trait: yq,
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.statusCode === 200) {
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 1500,
+            mask: true,
+          })
+        }
+      }
+
+    })
   },
 
   introYself: function (e) {
@@ -103,20 +126,8 @@ Page({
   introNow: function (e) {
     console.log(e)
   },
-  introYou: function (e) {
+  introYQ: function (e) {
     console.log(e)
   },
-  introQue: function (e) {
-    console.log(e)
-  },
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '自定义转发标题',
-      path: '/page/user?id=123'
-    }
-  },
+
 })

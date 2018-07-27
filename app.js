@@ -1,12 +1,12 @@
 //app.js
 App({
-  onLaunch: function () {
-
+  onLaunch: function() {
+    
   },
-  onLogin: function (cb) {
+  onLogin: function(cb) {
     var that = this;
     wx.checkSession({
-      success: function (res) {
+      success: function(res) {
         if (wx.getStorageSync('openid')) {
           that.onRefresh(cb);
         } else {
@@ -15,7 +15,7 @@ App({
               if (res.code) {
                 wx.getUserInfo({
                   withCredentials: true,
-                  success: function (res_user) {
+                  success: function(res_user) {
                     wx.request({
                       url: that.globalData.base_url + 'wechat/login/',
                       data: {
@@ -27,7 +27,7 @@ App({
                       header: {
                         'content-type': 'application/json'
                       },
-                      success: function (res) {
+                      success: function(res) {
                         console.log(res)
                         that.globalData.userInfo = res.data.userinfo;
                         wx.setStorageSync('session', res.data.hash);
@@ -36,7 +36,7 @@ App({
                       }
                     })
                   },
-                  fail: function (e) {
+                  fail: function(e) {
                     typeof cb == "function" && cb(false)
                   }
                 })
@@ -47,13 +47,13 @@ App({
           })
         }
       },
-      fail: function () {
+      fail: function() {
         wx.login({
           success: res => {
             if (res.code) {
               wx.getUserInfo({
                 withCredentials: true,
-                success: function (res_user) {
+                success: function(res_user) {
                   wx.request({
                     url: that.globalData.base_url + 'wechat/login/',
                     data: {
@@ -65,7 +65,7 @@ App({
                     header: {
                       'content-type': 'application/json'
                     },
-                    success: function (res) {
+                    success: function(res) {
                       that.globalData.userInfo = res.data.userinfo;
                       wx.setStorageSync('session', res.data.hash);
                       wx.setStorageSync('openid', res.data.openid);
@@ -73,21 +73,20 @@ App({
                     }
                   })
                 },
-                fail: function (e) {
+                fail: function(e) {
                   typeof cb == "function" && cb(false)
                 }
               })
-            } else {
-            }
+            } else {}
           }
         })
       }
     })
   },
-  onRefresh: function (cb) {
+  onRefresh: function(cb) {
     var that = this;
     wx.checkSession({
-      success: function (res) {
+      success: function(res) {
         if (!that.globalData.userInfo) {
           if (wx.getStorageSync('openid')) {
             wx.request({
@@ -99,7 +98,7 @@ App({
               header: {
                 'content-type': 'application/json'
               },
-              success: function (res) {
+              success: function(res) {
                 that.globalData.userInfo = res.data.userinfo;
                 typeof cb == "function" && cb(that.globalData.userInfo)
               }
@@ -111,7 +110,7 @@ App({
           typeof cb == "function" && cb(that.globalData.userInfo)
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         that.onLogin(cb);
       },
     })
@@ -120,5 +119,6 @@ App({
   globalData: {
     base_url: "https://www.1537u.cn/admin/",
     userInfo: null,
+
   },
 })

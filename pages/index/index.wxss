@@ -4,7 +4,6 @@
 .main {
   min-height: 100vh;
   background-color: #f0eff5;
-  overflow-x: hidden;
 }
 
 .main>.container {
@@ -23,7 +22,7 @@
 .hemain {
   position: absolute;
   top: 0;
-  left: 211rpx;
+  left: 245rpx;
 }
 
 .hs {
@@ -83,8 +82,8 @@
   height: 88rpx;
   line-height: 88rpx;
   border-radius: 44rpx;
-   box-shadow: 6rpx 6rpx 12rpx rgba(25, 54, 124, 0.2),
-              -6rpx 0 12rpx rgba(25, 54, 124, 0.2);
+   box-shadow: 6rpx 6rpx 12rpx rgba(25, 54, 124, 0.1),
+              -6rpx 0 12rpx rgba(25, 54, 124, 0.1);
   font-size: 36rpx;
 }
 
@@ -119,8 +118,9 @@
 
 .actintro {
   text-align: center;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #6995fe;
+  margin:10rpx 0 60rpx 0;
 }
 
 .yuan {
@@ -198,7 +198,7 @@
 
 .dian {
   position: absolute;
-  right: 217rpx;
+  right: 220rpx;
 }
 
 .friAvatar {
@@ -343,7 +343,7 @@
 }
 
 .content {
-  width: 540rpx;
+  width: 538rpx;
   font-size: 30rpx;
   line-height: 48rpx;
   color: #626566;
@@ -358,7 +358,6 @@
   color: #abadb3;
   font-size: 28rpx;
   width: 570rpx;
-  height: 62rpx;
   line-height: 36rpx;
   text-align: left;
 }

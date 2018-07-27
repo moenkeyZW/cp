@@ -1,11 +1,6 @@
 /* pages/task/index.wxss */
 @import '../taskDetail/index.wxss';
 
-.main {
-  width: 100%;
-  margin-left: 60rpx;
-}
-
 .noTask {
   margin-top: 100rpx;
 }
@@ -16,6 +11,7 @@
 }
 
 .think {
+  width: 100%;
   font-size: 30rpx;
   color: #999;
   margin: 63rpx 0 100rpx 0;
@@ -74,13 +70,27 @@
   margin: 65rpx 0 0 30rpx;
 }
 
+.xian {
+  width: 4rpx;
+  height: 28rpx;
+  background: #ffa557;
+  border-radius: 2rpx;
+  align-self: center;
+}
+
 .todayTask {
   color: #313133;
   font-size: 36rpx;
   line-height: 36rpx;
-  margin-bottom: 30rpx;
-  border-left: 4rpx solid #ffa557;
-  padding-left: 10rpx;
+  padding-left: 11rpx;
+}
+
+.ss {
+  margin-top: 30rpx;
+}
+
+.pp {
+  margin: 50rpx 0 30rpx 0;
 }
 
 .tian {
@@ -88,16 +98,17 @@
   height: 128rpx;
   border-radius: 8px;
   box-shadow: 4px 4px 4px rgba(217, 228, 255, 0.4);
-}
-
-.tao {
-  width: 690rpx;
-  height: 128rpx;
   background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 4rpx solid #6995fe;
+}
+
+.tao {
+  width: 10rpx;
+  height: 128rpx;
+  background: #fff;
+  position: absolute;
 }
 
 .tsk {
@@ -118,7 +129,6 @@
 .qwc {
   width: 120rpx;
   height: 48rpx;
-  background: #6995fe;
   border-radius: 8rpx;
   color: #fff;
   font-size: 24rpx;
@@ -126,12 +136,15 @@
   text-align: center;
   margin-right: 30rpx;
 }
-.mg{
-  margin:50rpx 0 30rpx 0;
+
+.mg {
+  margin: 50rpx 0 30rpx 0;
 }
-.pg{
-  margin-bottom:10rpx;
+
+.pg {
+  margin-bottom: 10rpx;
 }
-.lst{
-  margin-bottom:30rpx;
+
+.lst {
+  margin-bottom: 30rpx;
 }

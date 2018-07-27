@@ -12,8 +12,7 @@
   margin: 30rpx 0 30rpx 30rpx;
   color: #999;
 }
-.mgBot{
-  margin-bottom: 30rpx;
+.bot{
   border:none;
 }
 .foot{

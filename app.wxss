@@ -6,4 +6,5 @@
   align-items: center;
   box-sizing: border-box;
   background: #FAFBFF;
+  overflow: hidden;
 }

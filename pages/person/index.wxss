@@ -9,6 +9,7 @@
   width: 100%;
   background: #fff;
   margin:30rpx 0;
+  border:1rpx solid #e5e5e5;
 }
 .dd{
   margin-top:40rpx;
@@ -25,7 +26,9 @@ input {
 .form {
   width: 100%;
 }
-
+.cor{
+  color: #b2b2b2;
+}
 .section {
   margin-left:30rpx;
   background-color: #fff;
@@ -44,13 +47,11 @@ input {
 }
 
 .content {
-  color: #b2b2b2;
   padding-right: 25rpx;
 }
 
 .col {
   padding-top: 6rpx;
-  color: #b2b2b2;
 }
 
 .section .wrapper {
@@ -59,7 +60,6 @@ input {
 }
 
 .phcolor {
-  color: #b2b2b2;
   text-align: right;
 }
 
@@ -95,18 +95,12 @@ input {
 
 .intro {
   display: block;
-  border-bottom: none;
 }
 
 textarea {
-  border-bottom: 1rpx solid #E5E5E5;
-  width: 100%;
-  padding-bottom:20rpx;
+  margin-bottom:10rpx;
+  padding:0;
   color:#b2b2b2;
-}
-
-.self {
-  margin-bottom: 15rpx;
 }
 
 .db {

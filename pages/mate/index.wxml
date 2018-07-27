@@ -2,7 +2,7 @@
 <view class='container'>
   <view class='head'>请填写你的CP倾向</view>
   <form bindsubmit="mateHandle" class='form'>
-    <picker bindchange="pickMinAge" value='{{index}}' range="{{ageArr}}">
+    <picker bindchange="pickMinAge" value='{{index}}' range="{{ageArr}}" style='border-top:1rpx solid #e5e5e5;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">最小年龄</label>
@@ -14,8 +14,8 @@
         </view>
       </view>
     </picker>
-    <picker bindchange="pickMaxAge" value='{{index}}' range="{{ageArr}}">
-      <view class="section mgBot">
+    <picker bindchange="pickMaxAge" value='{{index}}' range="{{ageArr}}" style='border-bottom:1rpx solid #e5e5e5;'>
+      <view class="section bot">
         <view class='wrapper'>
           <label class="title">最大年龄</label>
           <input name="ageMax" type="number" class="{{ageMax>0?'cons':'con'}}"  value='{{ageMax}}' disabled/>
@@ -26,22 +26,22 @@
         </view>
       </view>
     </picker>
-   <picker bindchange="pickArea" value="{{index}}" range="{{AreaArray}}" name="area">
+   <picker bindchange="pickArea" value="{{index}}" range="{{AreaArray}}" name="area" style='border-top:1rpx solid #e5e5e5;margin-top:30rpx;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">地区</label>
-          <view class='content date'>{{AreaArray[index]}}</view>
+          <view class='content cor date'>{{AreaArray[index]}}</view>
         </view>
         <view class='right-arrow'>
           <image src='../../imgs/arrow.png'></image>
         </view>
       </view>
     </picker>
-     <picker bindchange="pickEducational" value="{{indexs}}" range="{{EducationalArray}}" name="edu">
-      <view class="section mgBot">
+     <picker bindchange="pickEducational" value="{{indexs}}" range="{{EducationalArray}}" name="edu" style='border-bottom:1rpx solid #e5e5e5;'>
+      <view class="section bot">
         <view class='wrapper'>
           <label class="title">学历</label>
-          <view class='content date'>{{EducationalArray[indexs]}}</view>
+          <view class='content cor date'>{{EducationalArray[indexs]}}</view>
         </view>
         <view class='right-arrow'>
           <image src='../../imgs/arrow.png'></image>
