@@ -40,7 +40,6 @@ Page({
   },
 
   mateHandle: function (e) {
-    console.log(e)
     let ageMin = e.detail.value.ageMin;
     let ageMax = e.detail.value.ageMax;
     let area = e.detail.value.area;
@@ -105,7 +104,6 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        console.log(res)
         wx.switchTab({
           url: '/pages/index/index'
         })

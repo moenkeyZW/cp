@@ -25,6 +25,9 @@ Page({
     percent: 12.5,
     right:'',
     friendArr: '',
+    hyArrs: '', 
+    hyname: '', 
+    showView:true,
   },
   onPullDownRefresh: function() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -75,6 +78,7 @@ Page({
             that.setData({
               friendArr:res.data.img,
               right:res.data.right,
+              hyArrs:res.data.zhuli.img_url,
             })
           }
           that.data.intervarID = setInterval(function() {
@@ -171,6 +175,12 @@ Page({
   lookcp:function(){
     wx.navigateTo({
       url: '/pages/cpIntro/index',
+    })
+  },
+  showAllHy: function (e) {
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
     })
   },
 })

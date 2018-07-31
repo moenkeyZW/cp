@@ -34,16 +34,16 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        console.log(res)
-        that.setData({
-          userInfo: res.data.info,
-        })
+        if(res.data.status===1){
+          that.setData({
+            userInfo: res.data.info,
+          })
+        }
       }
     })
   },
   
   introSelf:function(e){
-    console.log(e)
     let intro = e.detail.value.introduce;
     let future = e.detail.value.futureDoing;
     let now = e.detail.value.nowDoing;
@@ -103,7 +103,6 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        console.log(res)
         if (res.statusCode === 200) {
           wx.showToast({
             title: '保存成功',

@@ -88,7 +88,7 @@
         <text class='number'>{{distance}}</text>
         <text>位</text>
       </view>
-      <view class='friend'>
+      <view class='friend' bindtap='showAllHy'>
         <text>站台好友</text>
         <label wx:for="{{friendArr}}" wx:key="{{index}}" data-index="{{index}}">
           <view class='ii' style='left:{{right[index]}}rpx'>
@@ -98,6 +98,14 @@
         <view class='dian' wx:if="{{friendArr.length>=8}}">
           <image class='friAvatar' src='../../imgs/dian.png'></image>
         </view>
+      </view>
+      <view class="hide{{showView?'':'show'}}">
+        <label wx:for="{{hyArrs}}" wx:key="{{index}}" data-index="{{index}}">
+          <view>
+            <image class='frds' src='{{item.headimgurl}}'></image>
+            <text class=''>{{item.nickname}}</text>
+          </view>
+        </label>
       </view>
     </view>
     <view class='yqf'>邀请好友可提升等级，身份越高，匹配越优先，匹配成功概率越高</view>

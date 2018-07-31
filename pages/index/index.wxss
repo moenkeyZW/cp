@@ -380,3 +380,14 @@
   font-size:28rpx;
   margin-top:-20rpx;
 }
+.frds{
+  width:70rpx;
+  height:70rpx;
+  border-radius: 50%;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}

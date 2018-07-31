@@ -40,12 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this;
-    showView: (options.showView == "true" ? true : false);
-    showViewMusic: (options.showViewMusic == "true" ? true : false);
-    showViewMovie: (options.showViewMovie == "true" ? true : false);
-    showViewBook: (options.showViewBook == "true" ? true : false);
-    showViewPet: (options.showViewPet == "true" ? true : false);
+
   },
 
   /**
@@ -59,7 +54,6 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        console.log(res)
         that.setData({
           sportList: res.data.yundong,
           musicList: res.data.yinyue,

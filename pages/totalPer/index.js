@@ -121,38 +121,18 @@ Page({
       },
       method: 'GET',
       success: function(res) {
-        console.log(res);
+        console.log(res)
         if (res.data.info) {
           that.setData({
             userInfo: res.data.info,
-          })
-        }
-        if (res.data.info.motion) {
-          that.setData({
             sportArr: res.data.info.motion,
             sportChoose: false,
-          })
-        }
-        if (res.data.info.music) {
-          that.setData({
             musicArr: res.data.info.music,
             musicChoose: false,
-          })
-        }
-        if (res.data.info.film) {
-          that.setData({
             movieArr: res.data.info.film,
             movieChoose: false,
-          })
-        }
-        if (res.data.info.books) {
-          that.setData({
             bookArr: res.data.info.books,
             bookChoose: false,
-          })
-        }
-        if (res.data.info.pet) {
-          that.setData({
             petArr: res.data.info.pet,
             petChoose: false,
           })
@@ -162,7 +142,6 @@ Page({
   },
 
   personHandle: function(e) {
-    console.log(e)
     var that = this;
     let gender = e.detail.value.gender;
     let birthday = e.detail.value.birthday;

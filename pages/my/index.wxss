@@ -16,6 +16,7 @@
   width: 140rpx;
   height: 140rpx;
   margin:0 30rpx 0 50rpx;
+  border-radius: 10rpx;
 }
 .right-arrows {
   position: absolute;

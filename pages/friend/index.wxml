@@ -44,7 +44,7 @@
       </view>
     </block>
     <block>
-      <view wx:if="{{percent==100}}">
+      <view wx:if="{{percent>=100}}">
         <image src='../../imgs/yellowR.png' class='yuan juxing'></image>
       </view>
       <view wx:else>

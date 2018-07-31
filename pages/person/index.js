@@ -56,7 +56,6 @@ Page({
         'content-type': 'application/json'
       },
       success:function(res){
-        console.log(res);
         if(res.data.status===1){
           that.setData({
             region:res.data.info.szd,
@@ -193,7 +192,6 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        console.log(res)
         if (res.statusCode === 200) {
             wx.showToast({
               title: '保存成功',
