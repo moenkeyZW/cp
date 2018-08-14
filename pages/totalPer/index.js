@@ -413,6 +413,8 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
+          showCancel: false,
+          confirmText: '知道了',
           success: function(res) {}
         })
         return
@@ -457,6 +459,8 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
+          showCancel: false,
+          confirmText: '知道了',
           success: function(res) {}
         })
         return
@@ -500,6 +504,8 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
+          showCancel: false,
+          confirmText: '知道了',
           success: function(res) {}
         })
         return
@@ -543,6 +549,8 @@ Page({
         wx.showModal({
           title: '提示',
           content: '最多选择3项',
+          showCancel: false,
+          confirmText: '知道了',
           success: function(res) {}
         })
         return
