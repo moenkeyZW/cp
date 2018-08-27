@@ -5,7 +5,7 @@
         <image src='{{headimgurl}}' class='avatar'></image>
       </view>
       <view wx:else >
-        <image class="avatar" src="../../imgs/choose.png">
+        <image class="avatar" src="https://www.1537u.cn/Public/home/imgs/choose.png">
         </image>
       </view>
     <view>
@@ -13,7 +13,7 @@
       <view class='zw'>查看个人信息</view>
     </view>
     <view class='right-arrows pp'>
-      <image src='../../imgs/arrow.png'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
     </view>
   </view>
 
@@ -21,23 +21,23 @@
     <view class="section" bindtap='goIntroSelf'>
       <view class='wrapper'>
         <view class='tar'>
-          <image src='../../imgs/my1.png'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/my1.png'></image>
         </view>
         <label class="title">自我介绍</label>
       </view>
       <view class='right-arrow'>
-        <image src='../../imgs/arrow.png'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
       </view>
     </view>
     <view class="section bor" bindtap='goMyHobby'>
       <view class='wrapper'>
         <view class='tar'>
-          <image src='../../imgs/my2.png'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/my2.png'></image>
         </view>
         <label class="title">兴趣爱好</label>
       </view>
       <view class='right-arrow'>
-        <image src='../../imgs/arrow.png'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
       </view>
     </view>
   </view>
@@ -45,12 +45,12 @@
     <view class="section bor">
       <view class='wrapper'>
         <view class='tar'>
-          <image src='../../imgs/my3.png'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/my3.png'></image>
         </view>
         <label class="title">活动详情</label>
       </view>
       <view class='right-arrow'>
-        <image src='../../imgs/arrow.png'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
       </view>
     </view>
   </view>
@@ -58,12 +58,12 @@
     <view class="section bor">
       <view class='wrapper'>
         <view class='tar'>
-          <image src='../../imgs/my4.png'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/my4.png'></image>
         </view>
         <label class="title">联系我们</label>
       </view>
       <view class='right-arrow'>
-        <image src='../../imgs/arrow.png'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
       </view>
     </view>
   </view>

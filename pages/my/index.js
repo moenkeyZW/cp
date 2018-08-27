@@ -31,6 +31,7 @@ Page({
     var that = this;
     if (!app.globalData.userInfo) {
       app.onRefresh(function (res) {
+        console.log(res)
         that.setData({
           headimgurl: app.globalData.userInfo.headimgurl,
         })

@@ -20,7 +20,6 @@ Page({
       headimgurl: '',
     },
     timestamp: '',
-    intervarID: 'clock',
     shenfen: '路人',
     percent: 12.5,
     right:'',
@@ -81,35 +80,6 @@ Page({
               hyArrs:res.data.zhuli.img_url,
             })
           }
-          that.data.intervarID = setInterval(function() {
-            var date = Date.parse(new Date()) / 1000;
-            var time = res.data.data.end_time;
-            var total = time - date;
-            var day = parseInt(total / (24 * 60 * 60)); //计算整数天数
-            var afterDay = total - day * 24 * 60 * 60; //取得算出天数后剩余的秒数
-            var hour = parseInt(afterDay / (60 * 60)); //计算整数小时数
-            var afterHour = total - day * 24 * 60 * 60 - hour * 60 * 60; //取得算出小时数后剩余的秒数
-            var min = parseInt(afterHour / 60); //计算整数分
-            var miao = total - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60; //取得算出分后剩余的秒数\
-            var hours = day * 24 + hour;
-            if (hours < 10) {
-              hours = "0" + hours;
-            }
-            if (min < 10) {
-              min = "0" + min;
-            }
-            if (miao < 10) {
-              miao = "0" + miao;
-            }
-            var timestamp = hours + ":" + min + ":" + miao;
-            that.setData({
-              timestamp: timestamp
-            })
-            if (total <= 0) {
-              clearInterval(that.data.intervarID);
-              that.onShow(); // 刷新页面
-            }
-          }, 1000)
         }
         if (res.data.status === 2) {
           that.setData({
@@ -146,16 +116,14 @@ Page({
 
   onShareAppMessage: function(res) {
     if (app.globalData.userInfo) {
-      var id = app.globalData.userInfo.openid;
+      var openid = wx.getStorageSync('openid');
       var name = app.globalData.userInfo.nickname;
     } else {
       app.onRefresh();
-      // var id = app.globalData.userInfo.openid;
-      // var name = app.globalData.userInfo.nickname;
     }
     return {
       title: '来自' + name + '的一封信',
-      path: '/pages/friend/index?id=' + id + '&name=' + name,
+      path: '/pages/friend/index?openid=' + openid,
     }
   },
   uptask: function() {
@@ -175,6 +143,11 @@ Page({
   lookcp:function(){
     wx.navigateTo({
       url: '/pages/cpIntro/index',
+    })
+  },
+  chatRoom:function(){
+    wx.navigateTo({
+      url: '/pages/chatRoom/index',
     })
   },
   showAllHy: function (e) {

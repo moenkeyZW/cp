@@ -1,7 +1,0 @@
-<!--pages/fdCall/index.wxml-->
-<view class='container'>
-  <image src='../../imgs/fdCallSuc.png' class='fd' mode="widthFix"></image>
-   <view class="abs call rot">
-    <button open-type="getUserInfo" bindtap='joinUs' class='primary fc'>我也要参加</button>
-  </view>
-</view>

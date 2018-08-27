@@ -2,47 +2,13 @@
 @import '../../css/common.wxss';
 
 .main {
-  min-height: 100vh;
-  background-color: #f0eff5;
-}
-
-.main>.container {
-  background: #fff;
-  min-height: 0;
-}
-
-.header {
-  width: 100%;
-  height: 355rpx;
-  position: relative;
-  text-align: center;
-  color: #fff;
-}
-
-.hemain {
-  position: absolute;
-  top: 0;
-  left: 245rpx;
+  background-color: #fafbff;
 }
 
 .hs {
-  width: 100%;
-  height: 355rpx;
-}
-
-.suc {
-  font-size: 60rpx;
-  padding: 50rpx 0 12rpx 0;
-}
-
-.wait {
-  font-size: 24rpx;
-  margin-bottom: 50rpx;
-}
-
-.Countdown {
-  font-size: 26rpx;
-  margin-bottom: 22rpx;
+  width: 690rpx;
+  height: 386rpx;
+  margin-top: 30rpx;
 }
 
 .userinfo {
@@ -50,31 +16,40 @@
 }
 
 .badge {
-  width: 81rpx;
-  height: 89rpx;
+  width: 630rpx;
+  height: 300rpx;
 }
 
 .status {
-  display: flex;
-  margin: 61rpx 0 71rpx 30rpx;
-  justify-content: center;
+  position: relative;
+  bottom: 60rpx;
 }
 
-.bu {
-  margin-bottom: 47rpx;
-  font-size: 28rpx;
+.sel {
+  position: absolute;
+  width:100%;
+  text-align: center;
+  top:28rpx;
+}
+.next {
+  width:360rpx;
+  color: #B2B2B2;
+  font-size: 24rpx;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top:120rpx;
+  padding-bottom:12rpx;
+  border-bottom:1rpx solid #E5ECFF;
 }
 
 .now {
-  align-self: center;
-  font-size: 32rpx;
+  font-size: 36rpx;
+  color: #6995fe;
 }
 
 .nowStatus {
-  position: relative;
-  font-size: 22rpx;
-  top: 18rpx;
-  right: 63rpx;
+  font-size: 48rpx;
+  color:#FC6C7B;
 }
 
 .enter {
@@ -82,19 +57,25 @@
   height: 88rpx;
   line-height: 88rpx;
   border-radius: 44rpx;
-   box-shadow: 6rpx 6rpx 12rpx rgba(25, 54, 124, 0.1),
-              -6rpx 0 12rpx rgba(25, 54, 124, 0.1);
+  box-shadow: 6rpx 6rpx 12rpx rgba(25, 54, 124, 0.1), -6rpx 0 12rpx rgba(25, 54, 124, 0.1);
   font-size: 36rpx;
 }
 
 .pro {
-  width: calc(100% - 200rpx);
+  width: calc(100% - 140rpx);
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top:196rpx;
 }
 
 .img {
-  width: calc(100% - 200rpx);
+  width: calc(100% - 140rpx);
   display: flex;
   justify-content: space-around;
+  position: absolute;
+  top:202rpx;
+  left:66rpx;
 }
 
 .bg {
@@ -120,13 +101,13 @@
   text-align: center;
   font-size: 28rpx;
   color: #6995fe;
-  margin:10rpx 0 60rpx 0;
+  margin: 10rpx 0 60rpx 0;
 }
 
 .yuan {
   position: relative;
-  width: 30rpx;
-  height: 30rpx;
+  width: 28rpx;
+  height: 34rpx;
   bottom: 22rpx;
 }
 
@@ -151,45 +132,29 @@
 }
 
 .xx {
-  width: 100%;
-  position: relative;
-  bottom: 30rpx;
-  left: 83rpx;
-  font-size: 24rpx;
-  margin-bottom: 30rpx;
+  width: 630rpx;
+  position: absolute;
+  top: 226rpx;
+  left: 46rpx;
+  font-size: 22rpx;
+  color:#FC6C7B;
 }
 
 .xx>text:not(:last-child) {
-  padding-right: 86rpx;
-}
-
-.next {
-  width: 100%;
-  text-align: left;
-  color: #b4b4b4;
-  font-size: 22rpx;
-  margin-left: 40rpx;
-  padding-bottom: 15rpx;
-  border-bottom: 1rpx solid #ccc;
+  padding-right: 78rpx;
 }
 
 .number {
-  font-size: 32rpx;
-  color: #fc5a3b;
+  font-size:36rpx;
+  color: #FDBEC4;
 }
 
 .friend {
   width: 100%;
-  text-align: left;
+  text-align: center;
   font-size: 28rpx;
-  margin: 22rpx 0 22rpx 40rpx;
-  display: flex;
-  line-height: 52rpx;
-  position: relative;
-}
-
-.friend>text {
-  padding-right: 28rpx;
+  margin: 50rpx 0 30rpx 0;
+  color:#666;
 }
 
 .ii {
@@ -198,36 +163,32 @@
 
 .dian {
   position: absolute;
-  right: 220rpx;
+  right:112rpx;
+  bottom:35rpx;
 }
 
 .friAvatar {
-  width: 53rpx;
-  height: 53rpx;
+  width: 80rpx;
+  height: 80rpx;
   border-radius: 50%;
 }
 
-.yqf {
-  width: 100%;
-  height: 50rpx;
-  line-height: 50rpx;
-  background: #fdfcea;
-  color: #fd6d52;
-  font-size: 22rpx;
-  text-align: center;
-  margin: 20rpx 0;
-}
-
 .hy {
-  margin-top: 50rpx;
+  width:100%;
+  margin-top:-10rpx;
 }
-
 .hy>button {
-  width: calc(100% - 60rpx);
+  width: calc(100% - 120rpx);
   font-size: 36rpx;
   height: 88rpx;
   line-height: 88rpx;
   border-radius: 44rpx;
+  box-shadow:0px 6px 20px rgba(25,54,124,0.2);
+}
+.intro{
+  font-size:24rpx;
+  color:#B3B3B3;
+  margin-top:20rpx;
 }
 
 .bg3 {
@@ -319,7 +280,7 @@
 }
 
 .task {
-  margin-top:100rpx;
+  margin-top: 100rpx;
   width: 690rpx;
   height: 520rpx;
   background: rgba(255, 255, 255, 1);
@@ -361,9 +322,10 @@
   line-height: 36rpx;
   text-align: left;
 }
-.sctask{
-  position:relative;
-  bottom:42rpx;
+
+.sctask {
+  position: relative;
+  bottom: 42rpx;
 }
 
 .sc {
@@ -372,22 +334,60 @@
   line-height: 88rpx;
   border-radius: 44rpx;
   font-size: 36rpx;
-  box-shadow: 12rpx 12rpx 20rpx rgba(25, 54, 124, 0.2),
-              -12rpx 0 20rpx rgba(25, 54, 124, 0.2);
+  box-shadow: 12rpx 12rpx 20rpx rgba(25, 54, 124, 0.2), -12rpx 0 20rpx rgba(25, 54, 124, 0.2);
 }
-.sclok{
-  color:#ABADB3;
-  font-size:28rpx;
-  margin-top:-20rpx;
+
+.sclok {
+  color: #abadb3;
+  font-size: 28rpx;
+  margin-top: -20rpx;
 }
-.frds{
-  width:70rpx;
-  height:70rpx;
-  border-radius: 50%;
+
+.smI{
+  position: relative;
+  top:-1rpx;
+  width:14rpx;
+  height:14rpx;
+  left:-8rpx;
 }
-.hide{
+.line{
+  display: inline-block;
+  width:100rpx;
+  border:1rpx solid #B3B3B3;
+  border-radius: 1rpx;
+   vertical-align: middle
+}
+.zthy{
+  padding:0 20rpx 0 18rpx;
+}
+.hide {
   display: none;
 }
-.show{
+
+.show {
   display: block;
+}
+.friName{
+  color:#666;
+  font-size:28rpx;
+}
+.frList{
+  width:550rpx;
+  border-bottom:1rpx solid #E6E6E6;
+  padding:12rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.friAva{
+  width:80rpx;
+  height:80rpx;
+}
+.lastOne{
+  border:none;
+  margin-bottom:50rpx;
+}
+.noFri{
+  font-size:28rpx;
+  color:#b3b3b3;
 }

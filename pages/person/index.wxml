@@ -16,7 +16,7 @@
             <input name="gender" class="content cor" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
           </view>
           <view class='right-arrow'>
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
         </view>
       </picker>
@@ -27,7 +27,7 @@
             <view class='content cor date'>{{userInfo.birthday}}</view>
           </view>
           <view class='right-arrow'>
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
         </view>
       </picker>
@@ -42,7 +42,7 @@
             </view>
           </view>
           <view class='right-arrow'>
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
         </view>
       </picker>
@@ -56,7 +56,7 @@
             <text class='unit' hidden='{{userInfo.height==0||userInfo.height==null}}'>cm</text>
           </view>
           <view class='right-arrow'>
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
         </view>
       </picker>
@@ -68,7 +68,7 @@
             <text class='unit' hidden='{{userInfo.weight==0||userInfo.weight==null}}'>kg</text>
           </view>
           <view class='right-arrow'>
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
         </view>
       </picker>
@@ -87,7 +87,7 @@
             <view class='content cor date' wx:else>请填写</view>
           </view>
           <view class='right-arrow'>
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
         </view>
       </picker>

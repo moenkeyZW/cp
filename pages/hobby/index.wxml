@@ -14,10 +14,10 @@
         </block>
         <block wx:if="{{sportChoose}}">
           <view class='right-arrow' wx:if="{{showView}}">
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
           <view class='right-arrow down' wx:else>
-            <image src='../../imgs/down.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/down.png'></image>
           </view>
         </block>
       </view>
@@ -38,10 +38,10 @@
         </block>
         <block wx:if="{{musicChoose}}">
           <view class='right-arrow' wx:if="{{showViewMusic}}">
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
           <view class='right-arrow down' wx:else>
-            <image src='../../imgs/down.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/down.png'></image>
           </view>
         </block>
       </view>
@@ -62,10 +62,10 @@
         </block>
         <block wx:if="{{movieChoose}}">
           <view class='right-arrow' wx:if="{{showViewMovie}}">
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
           <view class='right-arrow down' wx:else>
-            <image src='../../imgs/down.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/down.png'></image>
           </view>
         </block>
       </view>
@@ -86,10 +86,10 @@
         </block>
         <block wx:if="{{bookChoose}}">
           <view class='right-arrow' wx:if="{{showViewBook}}">
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
           <view class='right-arrow down' wx:else>
-            <image src='../../imgs/down.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/down.png'></image>
           </view>
         </block>
       </view>
@@ -110,10 +110,10 @@
         </block>
         <block wx:if="{{petChoose}}">
           <view class='right-arrow' wx:if="{{showViewPet}}">
-            <image src='../../imgs/arrow.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
           </view>
           <view class='right-arrow down' wx:else>
-            <image src='../../imgs/down.png'></image>
+            <image src='https://www.1537u.cn/Public/home/imgs/down.png'></image>
           </view>
         </block>
       </view>

@@ -1,65 +1,116 @@
 <!--pages/friend/index.wxml-->
 <view class='container'>
-  <image src='../../imgs/fdCall.png' class='fd' mode="widthFix"></image>
-  <view class='abs rot from'>From
-    <text class='nick'>{{nickName}}</text> 的一封信</view>
-  <view class='abs rot com lt'>老铁,我正在参加一周恋人的活动，能</view>
-  <view class='abs rot com zt'>不能入选，就看你的了，请为我站台！</view>
-  <view class='abs rotate dq'>当前预选身份：
-    <text class='nick nm'>{{status}}</text> </view>
-  <view class='abs ss rot pro'>
-    <progress percent="{{percent}}" stroke-width="2" color='#FFE556' />
+  <image src='https://www.1537u.cn/Public/home/imgs/frbg.png' class='frbg'></image>
+  <block wx:if="{{status===0||status===2}}">
+    <image src='https://www.1537u.cn/Public/home/imgs/fdCall.png' class='abs fd' mode="widthFix"></image>
+  </block>
+  <block wx:else>
+    <image src='https://www.1537u.cn/Public/home/imgs/smCall.png' class='abs fd fds' mode="widthFix"></image>
+  </block>
+  <view class='abs dq'>当前预选身份：
+    <text class='nick'>{{shenfen}}</text>
   </view>
-  <view class='abs ss rot img'>
+  <view class='pro'>
+    <progress percent="{{percent}}" stroke-width="4" color='#FC6C7B' backgroundColor='#AFAFB3' />
+  </view>
+  <view class='img'>
     <block>
       <view wx:if="{{percent>0}}">
-        <image src='../../imgs/yellowR.png' class='yuan luren'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/red.png' class='yuan luren'></image>
       </view>
       <view wx:else>
-        <image src='../../imgs/grayR.png' class='yuan luren'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/gray.png' class='yuan luren'></image>
       </view>
     </block>
     <block>
       <view wx:if="{{percent>=25}}">
-        <image src='../../imgs/yellowR.png' class='yuan xinxiu'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/red.png' class='yuan xinxiu'></image>
       </view>
       <view wx:else>
-        <image src='../../imgs/grayR.png' class='yuan xinxiu'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/gray.png' class='yuan xinxiu'></image>
       </view>
     </block>
     <block>
       <view wx:if="{{percent>=50}}">
-        <image src='../../imgs/yellowR.png' class='yuan xiaoka'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/red.png' class='yuan xiaoka'></image>
       </view>
       <view wx:else>
-        <image src='../../imgs/grayR.png' class='yuan xiaoka'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/gray.png' class='yuan xiaoka'></image>
       </view>
     </block>
     <block>
       <view wx:if="{{percent>=75}}">
-        <image src='../../imgs/yellowR.png' class='yuan daka'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/red.png' class='yuan daka'></image>
       </view>
       <view wx:else>
-        <image src='../../imgs/grayR.png' class='yuan daka'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/gray.png' class='yuan daka'></image>
       </view>
     </block>
     <block>
       <view wx:if="{{percent>=100}}">
-        <image src='../../imgs/yellowR.png' class='yuan juxing'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/red.png' class='yuan juxing'></image>
       </view>
       <view wx:else>
-        <image src='../../imgs/grayR.png' class='yuan juxing'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/gray.png' class='yuan juxing'></image>
       </view>
     </block>
   </view>
-  <view class='abs rot xxs'>
+  <view class='xx'>
     <text>路人</text>
     <text>新秀</text>
     <text>小咖</text>
     <text>大咖</text>
     <text>巨星</text>
   </view>
-  <view class="abs call rot">
-    <button open-type="getUserInfo" bindgetuserinfo="callFriend" class='primary fc'>为好友打call</button>
+  <view style=' z-index:100;'>
+    <image src='https://www.1537u.cn/Public/home/imgs/dikuang.png' class='abs dikuang'></image>
+    <view class='abs yxsf'>预先身份越高，匹配越优先，成功率越高！</view>
+  </view>
+  <block wx:if="{{status===0}}">
+    <view style=' z-index:100;'>
+      <button open-type="getUserInfo" bindgetuserinfo="callFriend" plain='true' class='abs ztBtn btnPng'>
+        <image src='https://www.1537u.cn/Public/home/imgs/btn.png' class='btnPng'></image>
+      </button>
+    </view>
+    <view style=' z-index:100;'>
+      <button open-type="getUserInfo" bindgetuserinfo="callJoin" plain='true' class='abs call'>按撩不住，我也要参加</button>
+    </view>
+  </block>
+  <block wx:elif="{{status===1}}">
+    <view style=' z-index:100;'>
+      <button open-type="getUserInfo" bindgetuserinfo="callJoin" plain='true' class='abs ztBtn btnPng'>
+        <image src='https://www.1537u.cn/Public/home/imgs/join.png' class='btnPng'></image>
+      </button>
+    </view>
+  </block>
+  <block wx:else>
+    <view style=' z-index:100;'>
+      <button plain='true' class='abs ztBtn btnPng'>
+        <image src='https://www.1537u.cn/Public/home/imgs/joinEnd.png' class='btnPng'></image>
+      </button>
+    </view>
+    <view style=' z-index:100;'>
+      <button open-type="getUserInfo" bindgetuserinfo="callJoin" plain='true' class='abs call'>按撩不住，我也要参加</button>
+    </view>
+  </block>
+  <view class="abs friDetail" style='top:{{top}}rpx'>
+    <view class='friend'>
+      <text class='line'></text>
+      <text class='zthy'>站台好友</text>
+      <text class='line'></text>
+    </view>
+    <block wx:if="{{hyArrs}}">
+      <label wx:for="{{hyArrs}}" wx:key="{{index}}" data-index="{{index}}">
+        <view class='frList {{index===hyArrs.length-1?"lastOne":""}}'>
+          <view class='friAva'>
+            <image class='friAvatar' src='{{item.headimgurl}}'></image>
+          </view>
+          <view class='friName'> {{item.nickname}}</view>
+        </view>
+      </label>
+    </block>
+    <block wx:else>
+      <view class='friend'>暂无好友站台</view>
+    </block>
   </view>
 </view>

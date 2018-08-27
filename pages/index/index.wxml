@@ -1,192 +1,197 @@
 <!--index.wxml-->
-<view>
-  <view wx:if='{{status==0}}' class="container">
-    <view class='bgOne'>
-      <image src='../../imgs/bgOne.png' class='bg'></image>
+<view wx:if='{{status==0}}' class="container">
+  <view class='bgOne'>
+    <image src='https://www.1537u.cn/Public/home/imgs/bgOne.png' class='bg'></image>
+  </view>
+  <view class="again">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>立即报名</button>
+  </view>
+  <view bindtap='actIntro' class='actintro'>
+    <text>活动介绍</text>
+    <image src='https://www.1537u.cn/Public/home/imgs/right.png' class='right'></image>
+  </view>
+</view>
+<view wx:if='{{status==1}}' class=" container">
+  <view>
+    <image src='https://www.1537u.cn/Public/home/imgs/bgS.png' class='hs'></image>
+  </view>
+  <view class='status'>
+    <image src='https://www.1537u.cn/Public/home/imgs/badge.png' class='badge'></image>
+    <view class='sel'>
+      <text class='now'>当前预选身份：</text>
+      <text class='nowStatus'>{{shenfen}}</text>
     </view>
-    <view class="again">
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>立即报名</button>
+    <block wx:if="{{shenfen!=='巨星'}}">
+      <view class='sel next'>
+        <text>距离下一等级还差 </text>
+        <text class='number'> {{distance}} </text>
+        <text>位站台好友</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='sel next' style='letter-spacing:1rpx'>太棒了，你已成为巨星了</view>
+    </block>
+    <view class='pro'>
+      <progress percent="{{percent}}" stroke-width="4" color='#FC6C7B' />
     </view>
-    <view bindtap='actIntro' class='actintro'>
-      <text>活动介绍</text>
-      <image src='../../imgs/right.png' class='right'></image>
+    <view class='img'>
+      <block>
+        <view wx:if="{{percent>0}}">
+          <image src='https://www.1537u.cn/Public/home/imgs/yellowR.png' class='yuan luren'></image>
+        </view>
+        <view wx:else>
+          <image src='https://www.1537u.cn/Public/home/imgs/grayR.png' class='yuan luren'></image>
+        </view>
+      </block>
+      <block>
+        <view wx:if="{{percent>=25}}">
+          <image src='https://www.1537u.cn/Public/home/imgs/yellowR.png' class='yuan xinxiu'></image>
+        </view>
+        <view wx:else>
+          <image src='https://www.1537u.cn/Public/home/imgs/grayR.png' class='yuan xinxiu'></image>
+        </view>
+      </block>
+      <block>
+        <view wx:if="{{percent>=50}}">
+          <image src='https://www.1537u.cn/Public/home/imgs/yellowR.png' class='yuan xiaoka'></image>
+        </view>
+        <view wx:else>
+          <image src='https://www.1537u.cn/Public/home/imgs/grayR.png' class='yuan xiaoka'></image>
+        </view>
+      </block>
+      <block>
+        <view wx:if="{{percent>=75}}">
+          <image src='https://www.1537u.cn/Public/home/imgs/yellowR.png' class='yuan daka'></image>
+        </view>
+        <view wx:else>
+          <image src='https://www.1537u.cn/Public/home/imgs/grayR.png' class='yuan daka'></image>
+        </view>
+      </block>
+      <block>
+        <view wx:if="{{percent>=100}}">
+          <image src='https://www.1537u.cn/Public/home/imgs/yellowR.png' class='yuan juxing'></image>
+        </view>
+        <view wx:else>
+          <image src='https://www.1537u.cn/Public/home/imgs/grayR.png' class='yuan juxing'></image>
+        </view>
+      </block>
+    </view>
+    <view class='xx'>
+      <text>路人</text>
+      <text>新秀</text>
+      <text>小咖</text>
+      <text>大咖</text>
+      <text>巨星</text>
     </view>
   </view>
-  <view wx:if='{{status==1}}' class=" main">
-    <view class='container'>
-      <view class='header'>
-        <image src='../../imgs/bgS.png' class='hs'></image>
-        <view class='hemain'>
-          <view class='suc'>报名成功</view>
-          <view class='wait'>请等待揭晓结果</view>
-          <view class='Countdown'>匹配倒计时 {{timestamp}}</view>
-          <view class='bu'>
-            <text>开启提醒</text>
-            <image src='../../imgs/rtWhite.png' class='right'></image>
-          </view>
-        </view>
-      </view>
-      <view class='status'>
-        <view class='now'>当前预选身份:</view>
-        <image src='../../imgs/badge.png' class='badge'></image>
-        <text class='nowStatus'>{{shenfen}}</text>
-      </view>
-      <view class='pro'>
-        <progress percent="{{percent}}" stroke-width="4" color='#FFE556' />
-      </view>
-      <view class='img'>
-        <block>
-          <view wx:if="{{percent>0}}">
-            <image src='../../imgs/yellowR.png' class='yuan luren'></image>
-          </view>
-          <view wx:else>
-            <image src='../../imgs/grayR.png' class='yuan luren'></image>
-          </view>
-        </block>
-        <block>
-          <view wx:if="{{percent>=25}}">
-            <image src='../../imgs/yellowR.png' class='yuan xinxiu'></image>
-          </view>
-          <view wx:else>
-            <image src='../../imgs/grayR.png' class='yuan xinxiu'></image>
-          </view>
-        </block>
-        <block>
-          <view wx:if="{{percent>=50}}">
-            <image src='../../imgs/yellowR.png' class='yuan xiaoka'></image>
-          </view>
-          <view wx:else>
-            <image src='../../imgs/grayR.png' class='yuan xiaoka'></image>
-          </view>
-        </block>
-        <block>
-          <view wx:if="{{percent>=75}}">
-            <image src='../../imgs/yellowR.png' class='yuan daka'></image>
-          </view>
-          <view wx:else>
-            <image src='../../imgs/grayR.png' class='yuan daka'></image>
-          </view>
-        </block>
-        <block>
-          <view wx:if="{{percent>=100}}">
-            <image src='../../imgs/yellowR.png' class='yuan juxing'></image>
-          </view>
-          <view wx:else>
-            <image src='../../imgs/grayR.png' class='yuan juxing'></image>
-          </view>
-        </block>
-      </view>
-      <view class='xx'>
-        <text>路人</text>
-        <text>新秀</text>
-        <text>小咖</text>
-        <text>大咖</text>
-        <text>巨星</text>
-      </view>
-      <view class='next'>
-        <text>距离下一等级还差</text>
-        <text class='number'>{{distance}}</text>
-        <text>位</text>
-      </view>
-      <view class='friend' bindtap='showAllHy'>
-        <text>站台好友</text>
-        <label wx:for="{{friendArr}}" wx:key="{{index}}" data-index="{{index}}">
-          <view class='ii' style='left:{{right[index]}}rpx'>
-            <image class='friAvatar' src='{{item}}'></image>
-          </view>
-        </label>
-        <view class='dian' wx:if="{{friendArr.length>=8}}">
-          <image class='friAvatar' src='../../imgs/dian.png'></image>
-        </view>
-      </view>
-      <view class="hide{{showView?'':'show'}}">
-        <label wx:for="{{hyArrs}}" wx:key="{{index}}" data-index="{{index}}">
-          <view>
-            <image class='frds' src='{{item.headimgurl}}'></image>
-            <text class=''>{{item.nickname}}</text>
-          </view>
-        </label>
-      </view>
-    </view>
-    <view class='yqf'>邀请好友可提升等级，身份越高，匹配越优先，匹配成功概率越高</view>
-    <view class='hy'>
-      <button open-type='share' class='primary'>邀请好友站台</button>
-    </view>
+  <view class='hy'>
+    <button open-type='share' class='primary'>邀请好友站台</button>
   </view>
-  <!-- 2是匹配成功 -->
-  <view wx:if='{{status==2}}' class="container">
-    <view class='dk' bindtap='lookcp'>
-      <image src='../../imgs/people.png'></image>
-      <view class='cpAvatar'>
-        <image src='{{cpInfo.headimgurl}}' class='cpava'></image>
-        <view class='nminfo'>
-          <view class='cpname'>{{cpInfo.nickname}}</view>
-          <view class='cpInfo'>{{cpInfo.age}}岁·{{cpInfo.city}}{{cpInfo.area}}</view>
-        </view>
-      </view>
-      <view class='tmt fx'>
-        <view class='tou fx'>
-          <image src='../../imgs/keek.png' class='hi'></image>
-          <view class='ft'>偷瞄TA</view>
-        </view>
-        <view class='zh fx'>
-          <image src='../../imgs/hi.png' class='hi'></image>
-          <view class='ft'>打招呼</view>
-          <view>
-            <image src='../../imgs/new.png' class='new'></image>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class="task">
-      <view class='totask'>
-        <image src='../../imgs/todayTask.png'></image>
-      </view>
-      <view class='detail'>{{title}}</view>
-      <view class='yi'></view>
-      <view class='content'>{{detail}}</view>
-      <view class='explain'>{{explain}}</view>
-    </view>
+  <view class='intro'>预选身份越高，匹配越优先，成功率越高！</view>
 
-    <!-- 任务 -->
-    <block wx:if="{{task==1}}">
-      <view class='sctask'>
-        <button class='primary sc' bindtap='uptask'>上传任务</button>
+  <view class='friend' bindtap='showAllHy'>
+    <text class='line'></text>
+    <text class='zthy'>站台好友</text>
+    <image src="https://www.1537u.cn/Public/home/imgs/{{showView?'rt.png':'bt.png'}}" class='smI'></image>
+    <text class='line'></text>
+  </view>
+  <block wx:if="{{friendArr}}">
+    <label wx:for="{{friendArr}}" wx:key="{{index}}" data-index="{{index}}" wx:if="{{showView}}">
+      <view class='ii' style='left:{{right[index]}}rpx'>
+        <image class='friAvatar' src='{{item}}'></image>
       </view>
-      <view class='sclok' hidden='{{number===1}}'>上传成功可查看CP上传情况</view>
-    </block>
-    <!-- 任务已完成 -->
-    <block wx:if="{{task==2||task==3}}">
-      <view class='sctask'>
-        <button class='primary sc' bindtap='taskDetail'>查看任务详情</button>
+    </label>
+    <view class='dian'  hidden="{{!showView || friendArr.length<8}}">
+      <image class='friAvatar' src='https://www.1537u.cn/Public/home/imgs/dian.png'></image>
+    </view>
+    <view class="hide{{showView?'':'show'}}">
+      <label wx:for="{{hyArrs}}" wx:key="{{index}}" data-index="{{index}}">
+        <view class='frList {{index===hyArrs.length-1?"lastOne":""}} '>
+          <view class='friAva'>
+            <image class='friAvatar' src='{{item.headimgurl}}'></image>
+          </view>
+          <view class='friName'> {{item.nickname}}</view>
+        </view>
+      </label>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='noFri'>暂无站台好友</view>
+  </block>
+</view>
+<!-- 2是匹配成功 -->
+<view wx:if='{{status==2}}' class="container">
+  <view class='dk' >
+    <image src='https://www.1537u.cn/Public/home/imgs/people.png'></image>
+    <view class='cpAvatar'>
+      <image src='{{cpInfo.headimgurl}}' class='cpava'></image>
+      <view class='nminfo'>
+        <view class='cpname'>{{cpInfo.nickname}}</view>
+        <view class='cpInfo'>{{cpInfo.age}}岁·{{cpInfo.city}}{{cpInfo.area}}</view>
       </view>
-    </block>
-  </view>
-  <!-- 匹配失败 要求太高-->
-  <view wx:if='{{status==3}}' class="container">
-    <view class='bgOne'>
-      <image src='../../imgs/cpfail.png' class='bg'></image>
     </view>
-    <view class="again">
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
-    </view>
-  </view>
-  <!-- 匹配失败 等级太低-->
-  <view wx:if='{{status==4}}' class="container">
-    <view class='bgOne'>
-      <image src='../../imgs/fail.png' class='bg'></image>
-    </view>
-    <view class="again">
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
+    <view class='tmt fx'>
+      <view class='tou fx' bindtap='lookcp'>
+        <image src='https://www.1537u.cn/Public/home/imgs/keek.png' class='hi'></image>
+        <view class='ft'>偷瞄TA</view>
+      </view>
+      <view class='zh fx' bindtap='chatRoom'>
+        <image src='https://www.1537u.cn/Public/home/imgs/hi.png' class='hi'></image>
+        <view class='ft'>打招呼</view>
+        <view>
+          <image src='https://www.1537u.cn/Public/home/imgs/new.png' class='new'></image>
+        </view>
+      </view>
     </view>
   </view>
-  <!-- 体验到期 -->
-  <view wx:if='{{status==5}}' class="container">
-    <view class='bgOne'>
-      <image src='../../imgs/bgThree.png' class='bg3'></image>
+  <view class="task">
+    <view class='totask'>
+      <image src='https://www.1537u.cn/Public/home/imgs/todayTask.png'></image>
     </view>
-    <view class="userinfo">
-      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>再次报名</button>
+    <view class='detail'>{{title}}</view>
+    <view class='yi'></view>
+    <view class='content'>{{detail}}</view>
+    <view class='explain'>{{explain}}</view>
+  </view>
+
+  <!-- 任务 -->
+  <block wx:if="{{task==1}}">
+    <view class='sctask'>
+      <button class='primary sc' bindtap='uptask'>上传任务</button>
     </view>
+    <view class='sclok' hidden='{{number===1}}'>上传成功可查看CP上传情况</view>
+  </block>
+  <!-- 任务已完成 -->
+  <block wx:if="{{task==2||task==3}}">
+    <view class='sctask'>
+      <button class='primary sc' bindtap='taskDetail'>查看任务详情</button>
+    </view>
+  </block>
+</view>
+<!-- 匹配失败 要求太高-->
+<view wx:if='{{status==3}}' class="container">
+  <view class='bgOne'>
+    <image src='https://www.1537u.cn/Public/home/imgs/cpfail.png' class='bg'></image>
+  </view>
+  <view class="again">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
+  </view>
+</view>
+<!-- 匹配失败 等级太低-->
+<view wx:if='{{status==4}}' class="container">
+  <view class='bgOne'>
+    <image src='https://www.1537u.cn/Public/home/imgs/fail.png' class='bg'></image>
+  </view>
+  <view class="again">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>重新报名</button>
+  </view>
+</view>
+<!-- 体验到期 -->
+<view wx:if='{{status==5}}' class="container">
+  <view class='bgOne'>
+    <image src='https://www.1537u.cn/Public/home/imgs/bgThree.png' class='bg3'></image>
+  </view>
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='primary enter'>再次报名</button>
   </view>
 </view>

@@ -1,11 +1,11 @@
 <!--pages/intro/index.wxml-->
 <view class='container'>
   <view class='bg'>
-    <image src='../../imgs/bgTwo.png' class='act'></image>
+    <image src='https://www.1537u.cn/Public/home/imgs/bgTwo.png' class='act'></image>
   </view>
   <view class='hdlc'>活动流程</view>
   <view class="liu">
-    <image src='../../imgs/liu.png' class='lct'></image>
+    <image src='https://www.1537u.cn/Public/home/imgs/liu.png' class='lct'></image>
   </view>
   <view class='result'>
     <text>关注"恋人公式"公众号，自动通知匹配结果</text>
@@ -13,20 +13,20 @@
   <view class='matter'>
     <view class='att'>注意事项</view>
     <view class='jieshao'>
-      <image src='../../imgs/round.png' class='round'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/round.png' class='round'></image>
       <text>受众要求：必须是满18岁以上的单身帅哥美女</text>
     </view>
     <view class='jieshao'>
-      <image src='../../imgs/round.png' class='round'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/round.png' class='round'></image>
       <text>成功组成CP后，正常情况下不允许解除CP关系，如真的</text>
       <text style='padding-left:25rpx;'>不合适、需对方同意，联系客服解除关系</text>
     </view>
     <view class='jieshao'>
-      <image src='../../imgs/round.png' class='round'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/round.png' class='round'></image>
       <text>承诺每天按时完成CP任务（做好CP该做的事）</text>
     </view>
       <view class='jieshao'>
-      <image src='../../imgs/round.png' class='round'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/round.png' class='round'></image>
       <text>活动最终解释权归一周恋人所有</text>
     </view>
   </view>

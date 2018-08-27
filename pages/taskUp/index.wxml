@@ -6,12 +6,12 @@
     <view class='upImg'>
       <view wx:for="{{img_arr}}" wx:key="{{index}}" class='key'>
         <view class='delete' catchtap="deleteImg" data-index="{{index}}">
-          <image src='../../imgs/x.png' class='x'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/x.png' class='x'></image>
         </view>
         <image src='{{item}}' data-index="{{index}}" class='cho pdd'></image>
       </view>
       <view bindtap='choose' hidden="{{img_arr.length>=4}}">
-        <image src='../../imgs/choose.png' class='cho'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/choose.png' class='cho'></image>
       </view>
     </view>
     <view class='more'>最多只能上传4张图片</view>

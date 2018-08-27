@@ -73,12 +73,6 @@
 				},
 				{
 					"id": -1,
-					"name": "打call成功",
-					"pathName": "pages/fdCall/index",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "综合个人",
 					"pathName": "pages/totalPer/index",
 					"query": ""
@@ -111,6 +105,12 @@
 					"id": -1,
 					"name": "提交任务",
 					"pathName": "pages/taskUp/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "聊天室",
+					"pathName": "pages/chatRoom/index",
 					"query": ""
 				}
 			]

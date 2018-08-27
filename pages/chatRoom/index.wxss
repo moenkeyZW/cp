@@ -1,0 +1,218 @@
+/* pages/chatRoom/index.wxss */
+
+page {
+  background-color: #f7f7f7;
+  height: 100%;
+}
+
+/* 聊天内容 */
+
+.news {
+  width:100%;
+  padding-top: 30rpx;
+  text-align: center;
+  /* height:100%; */
+  box-sizing: border-box;
+}
+
+.time{
+  width:84rpx;
+  height:32rpx;
+  font-size:20rpx;
+  border-radius: 6rpx;
+  color:#333;
+  background:#E0E0E0;
+  line-height:32rpx;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left:50%;
+  margin-top:20rpx;
+}
+#flag {
+  width:100%;
+  margin-bottom: 50rpx;
+  height: 100rpx;
+}
+
+.chat-notice {
+  text-align: center;
+  font-size: 30rpx;
+  padding: 10rpx 0;
+  color: #666;
+}
+
+.historycon {
+  height: 100%;
+  width: 100%;
+  /* flex-direction: column; */
+  display: flex;
+  border-top: 0px;
+}
+
+/* 聊天 */
+
+.chat-news {
+  width: 100%;
+  overflow: hidden;
+}
+
+.chat-news .my_right {
+  float: right;
+  /* right: 40rpx; */
+  padding: 10rpx 10rpx;
+}
+
+.chat-news .name {
+  margin-right: 10rpx;
+}
+
+.chat-news .you_left {
+  float: left;
+  /* left: 5rpx; */
+  padding: 10rpx 10rpx;
+}
+
+.selectImg {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 50rpx;
+}
+.selectEmoji{
+  display: inline-block;
+  width: 44rpx;
+  height: 44rpx;
+  margin:0 80rpx 0 50rpx;
+}
+.my_right .selectImg {
+  margin-right: 80rpx;
+}
+
+.new_img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.new_txt {
+  max-width: 300rpx;
+  display: inline-block;
+  border-radius: 6rpx;
+  line-height: 60rpx;
+  background-color: #95d4ff;
+  padding: 5rpx 20rpx;
+  margin: 0 10rpx;
+  margin-left: 50rpx;
+}
+
+.my_right .new_txt {
+  margin-right: 60rpx;
+}
+
+.you {
+  background-color: lightgreen;
+}
+
+.my {
+  border-color: transparent transparent transparent #95d4ff;
+}
+
+.you {
+  border-color: transparent #95d4ff transparent transparent;
+}
+
+.hei {
+  margin-top: 50px;
+  height: 20rpx;
+}
+
+.history {
+  height: 100%;
+  padding: 10rpx;
+  font-size: 14px;
+  line-height: 40px;
+  word-break: break-all;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  z-index: -1;
+}
+
+/* 信息输入区域 */
+
+.message {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height:auto;
+}
+
+.sendMessage {
+  display: block;
+  height: 98rpx;
+  background-color: #fff;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+  z-index: 3;
+}
+
+.sendMessage input {
+  float: left;
+  width: 484rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius:10rpx;
+  background:#EBEEF5;
+  margin:20rpx 0 0 30rpx;
+  font-size: 30rpx;
+  color: #333;
+  padding-left:10rpx;
+}
+
+.sendMessage button {
+  float: right;
+  font-size: 30rpx;
+  width:108rpx;
+  height:54rpx;
+  line-height: 54rpx;
+  padding:0;
+  background:#6995fe;
+  position: relative;
+  right:30rpx;
+  top:26rpx;
+}
+
+.image{
+  width:48rpx;
+  height:48rpx;
+  margin-top:28rpx;
+  position: relative;
+  right:30rpx;
+}
+.emoji{
+  width:48rpx;
+  height:48rpx;
+  position: relative;
+  right:70rpx;
+  z-index: 100;
+}
+.emoji_list{
+  background:#fff;
+  z-index:100;
+}
+.slide-image{
+  width:50rpx;
+  height:50rpx;
+  margin-top:20rpx;
+}
+.firstOne{
+  margin:0 30rpx 0 56rpx;
+}
+.elseImg{
+  margin-right:30rpx;
+}

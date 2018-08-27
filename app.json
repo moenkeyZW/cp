@@ -10,11 +10,11 @@
     "pages/task/index",
     "pages/my/index",
     "pages/introSelf/index",
-    "pages/fdCall/index",
     "pages/totalPer/index",
     "pages/taskDetail/index",
     "pages/cpIntro/index",
-    "pages/taskUp/index"
+    "pages/taskUp/index",
+    "pages/chatRoom/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

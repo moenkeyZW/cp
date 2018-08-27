@@ -2,41 +2,41 @@
 <view class='container'>
   <view wx:if="{{task==0}}">
     <view class='noTask'>
-      <image src='../../imgs/noTask.png' class='bgTask'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/noTask.png' class='bgTask'></image>
     </view>
   </view>
 
   <view wx:if="{{task==1}}" class='lst'>
     <view class='cpSuc'>
-      <image src='../../imgs/cpSuc.png' class='cpBg'></image>
+      <image src='https://www.1537u.cn/Public/home/imgs/cpSuc.png' class='cpBg'></image>
     </view>
     <view class='group'>
       <block wx:if="{{cpInfo.gender==2}}">
         <view class='ab wo'>
           <image src='{{cpInfo.headimgurl}}' class='avatar'></image>
-          <image src='../../imgs/female.png' class='fm fe'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/female.png' class='fm fe'></image>
         </view>
       </block>
       <block wx:if="{{userInfo.gender==2}}">
         <view class='ab wo'>
           <image src='{{userInfo.headimgurl}}' class='avatar'></image>
-          <image src='../../imgs/female.png' class='fm fe'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/female.png' class='fm fe'></image>
         </view>
       </block>
       <block wx:if="{{userInfo.gender==1}}">
         <view class='ab ma'>
           <image src='{{userInfo.headimgurl}}' class='avatar'></image>
-          <image src='../../imgs/male.png' class='fm man'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/male.png' class='fm man'></image>
         </view>
       </block>
       <block wx:if="{{cpInfo.gender==1}}">
         <view class='ab ma'>
           <image src='{{cpInfo.headimgurl}}' class='avatar'></image>
-          <image src='../../imgs/male.png' class='fm man'></image>
+          <image src='https://www.1537u.cn/Public/home/imgs/male.png' class='fm man'></image>
         </view>
       </block>
       <view>
-        <image src='../../imgs/love.png' class='love'></image>
+        <image src='https://www.1537u.cn/Public/home/imgs/love.png' class='love'></image>
       </view>
     </view>
     <view class='renwu'>
