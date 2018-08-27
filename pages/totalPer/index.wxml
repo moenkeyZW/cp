@@ -13,7 +13,7 @@
       <view class="section">
         <view class='wrapper'>
           <label class="title">性别</label>
-          <!-- <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/> -->
+          <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
         </view>
         <view class='right-arrow'>
           <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
