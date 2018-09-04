@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headimgurl:'',
+    userInfo:'',
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -31,15 +31,14 @@ Page({
     var that = this;
     if (!app.globalData.userInfo) {
       app.onRefresh(function (res) {
-        console.log(res)
         that.setData({
-          headimgurl: app.globalData.userInfo.headimgurl,
+          userInfo: app.globalData.userInfo,
         })
       });
     } else {
       const userInfo = app.globalData.userInfo;
-      this.setData({
-        headimgurl: userInfo.headimgurl
+      that.setData({
+        userInfo: userInfo
       })
     }
   },

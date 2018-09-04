@@ -48,6 +48,7 @@ input {
 
 .content {
   padding-right: 25rpx;
+  align-self: center;
 }
 
 .col {

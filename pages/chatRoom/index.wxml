@@ -29,9 +29,7 @@
 
               </block>
               <block wx:if="{{item.type=='emoji'}}">
-
                 <image class="selectEmoji" src="{{item.emoji}}" data-src="{{item.emoji}}" lazy-load="true"></image>
-
               </block>
 
             </view>
@@ -52,6 +50,9 @@
               <block wx:if="{{item.type=='image'}}">
                 <image class="selectImg" src="{{item.images}}" data-src="{{item.images}}" lazy-load="true" bindtap="previewImg"></image>
               </block>
+              <block wx:if="{{item.type=='emoji'}}">
+                <image class="selectEmoji" src="{{item.emoji}}" data-src="{{item.emoji}}" lazy-load="true"></image>
+              </block>
             </view>
           </view>
         </block>
@@ -68,16 +69,16 @@
       <input type="text" value="{{massage}}" bindinput='bindChange'></input>
       <image src='../../imgs/Emoji.png' class='emoji' bindtap='emoji'></image>
       <image src='../../imgs/chooseImage.png' class="image" bindtap='chooseImage'></image>
-      <button type="primary" bindtap='send' formType="reset" size="small" >发送</button>
+      <button type="primary" bindtap='send' formType="reset" size="small">发送</button>
     </form>
     <swiper class="emoji_list" hidden='{{showView}}' indicator-dots="true" autoplay="{{autoplay}}">
       <block>
-        <swiper-item >
+        <swiper-item>
           <image wx:for="{{imgUrls[0]}}" wx:key="{{index}}" src="{{item}}" class="slide-image {{index==0||index==8||index==16?'firstOne':'elseImg'}}" bindtap='sendEmoji' data-emoji="{{index}}" />
         </swiper-item>
       </block>
       <block>
-        <swiper-item >
+        <swiper-item>
           <image wx:for="{{imgUrls[1]}}" wx:key="{{index}}" src="{{item}}" class="slide-image {{index==0||index==8||index==16?'firstOne':'elseImg'}}" bindtap='sendEmoji' data-emoji="{{index+24}}" data-index="{{index}}" />
         </swiper-item>
       </block>

@@ -9,11 +9,20 @@
       </label>
       <input placeholder='请填写你的微信号' placeholder-style="text-align:right" bindconfirm='wxInput' value='{{wxh}}' name="wxh" />
     </view> -->
-    <picker bindchange="pickGender" value="{{index}}" range="{{genderArray}}" style='border-top:1rpx solid #e5e5e5;'>
+    <picker bindchange="pickGender" name="gender" value="{{index}}" range="{{genderArray}}" style='border-top:1rpx solid #e5e5e5;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">性别</label>
-          <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/>
+          <!-- <input name="gender" class="content" value='{{userInfo.gender==1?"男":userInfo.gender==2?"女":""}}' placeholder='请填写' placeholder-style='color:#b2b2b2' disabled/> -->
+          <block wx:if='{{userInfo.gender==1}}'>
+            <view class="content" style='color:#b2b2b2'>男</view>
+          </block>
+          <block wx:elif='{{userInfo.gender==2}}'>
+            <view class="content" style='color:#b2b2b2'>女</view>
+          </block>
+          <block wx:else>
+            <view class="content" style='color:#b2b2b2'>请填写</view>
+          </block>
         </view>
         <view class='right-arrow'>
           <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
@@ -24,7 +33,7 @@
       <view class="section">
         <view class='wrapper'>
           <label class="title">生日</label>
-          <view class='content cor date'>{{userInfo.birthday}}</view>
+          <view class='content cor '>{{userInfo.birthday}}</view>
         </view>
         <view class='right-arrow'>
           <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
@@ -35,7 +44,7 @@
       <view class="section">
         <view class='wrapper'>
           <label class="title">所在地</label>
-          <view class="content cor date">
+          <view class="content cor ">
             {{userInfo.region[0]}}，{{userInfo.region[1]}}，{{userInfo.region[2]}}
           </view>
         </view>
@@ -44,24 +53,36 @@
         </view>
       </view>
     </picker>
-    <picker bindchange="pickHeight" value='{{70||(userInfo.height? userInfo.height-100: "")||index}}' range="{{heightArr}}">
+    <picker bindchange="pickHeight" name='height' value='{{userInfo.height}}' range="{{heightArr}}">
       <view class="section">
         <view class='wrapper'>
           <label class="title">身高</label>
-          <input name="height" type="number" class="{{userInfo.height>0?'cons':'con'}}" placeholder='请填写' placeholder-style='color:#b2b2b2' value='{{userInfo.height>0?userInfo.height:""}}' disabled/>
-          <text class='unit' hidden='{{userInfo.height==0||userInfo.height==null}}'>cm</text>
+          <!-- <input name="height" type="number" class="{{userInfo.height>0?'cons':'con'}}" placeholder='请填写' placeholder-style='color:#b2b2b2' value='{{userInfo.height>0?userInfo.height:""}}' disabled/>
+          <text class='unit' hidden='{{userInfo.height==0||userInfo.height==null}}'>cm</text> -->
+          <block wx:if='{{userInfo.height}}'>
+            <view class="content" style='color:#b2b2b2'>{{userInfo.height}} cm</view>
+          </block>
+          <block wx:else>
+            <view class="content" style='color:#b2b2b2'>请填写</view>
+          </block>
         </view>
         <view class='right-arrow'>
           <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
         </view>
       </view>
     </picker>
-    <picker bindchange="pickWeight" value='{{40||(userInfo.weight? userInfo.weight-30: "")||index}}' range="{{weightArr}}">
+    <picker bindchange="pickWeight" name='weight' value='{{userInfo.weight}}' range="{{weightArr}}">
       <view class="section">
         <view class='wrapper'>
           <label class="title">体重</label>
-          <input name="weight" type="number" class="{{userInfo.weight>0?'cons':'con'}}" placeholder='请填写' placeholder-style='color:#b2b2b2;' value='{{userInfo.weight>0?userInfo.weight:""}}' disabled/>
-          <text class='unit' hidden='{{userInfo.weight==0||userInfo.weight==null}}'>kg</text>
+          <!-- <input name="weight" type="number" class="{{userInfo.weight>0?'cons':'con'}}" placeholder='请填写' placeholder-style='color:#b2b2b2;' value='{{userInfo.weight>0?userInfo.weight:""}}' disabled/>
+          <text class='unit' hidden='{{userInfo.weight==0||userInfo.weight==null}}'>kg</text> -->
+          <block wx:if='{{userInfo.weight}}'>
+            <view class="content" style='color:#b2b2b2'>{{userInfo.weight}} kg</view>
+          </block>
+          <block wx:else>
+            <view class="content" style='color:#b2b2b2'>请填写</view>
+          </block>
         </view>
         <view class='right-arrow'>
           <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>
@@ -78,7 +99,7 @@
       <view class="section bor">
         <view class='wrapper'>
           <label class="title">学历</label>
-          <view class='content cor date' >{{userInfo.xueli}}</view>
+          <view class='content cor '>{{userInfo.xueli}}</view>
         </view>
         <view class='right-arrow'>
           <image src='https://www.1537u.cn/Public/home/imgs/arrow.png'></image>

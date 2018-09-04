@@ -26,15 +26,15 @@ function connect(user, func) {
 
   wx.onSocketOpen(function (res) {
 
-    wx.showToast({
+    // wx.showToast({
 
-      title: 'websocket已开通~',
+    //   title: 'websocket已开通~',
 
-      icon: "success",
+    //   icon: "success",
 
-      duration: 2000
+    //   duration: 2000
 
-    })
+    // })
 
     //接受服务器消息
 
@@ -44,15 +44,15 @@ function connect(user, func) {
 
   wx.onSocketError(function (res) {
 
-    wx.showToast({
+    // wx.showToast({
 
-      title: 'websocket连接失败，请检查！',
+    //   title: 'websocket连接失败，请检查！',
 
-      icon: "none",
+    //   icon: "none",
 
-      duration: 2000
+    //   duration: 2000
 
-    })
+    // })
 
   })
 

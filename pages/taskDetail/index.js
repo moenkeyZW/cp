@@ -63,6 +63,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        console.log(res)
         that.setData({
           task:res.data.status,
           userInfo:res.data.userInfo,

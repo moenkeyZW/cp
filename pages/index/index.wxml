@@ -138,9 +138,9 @@
       <view class='zh fx' bindtap='chatRoom'>
         <image src='https://www.1537u.cn/Public/home/imgs/hi.png' class='hi'></image>
         <view class='ft'>打招呼</view>
-        <view>
+        <!-- <view>
           <image src='https://www.1537u.cn/Public/home/imgs/new.png' class='new'></image>
-        </view>
+        </view> -->
       </view>
     </view>
   </view>

@@ -2,11 +2,12 @@
 <view class='container'>
   <view class='head'>请填写你的CP倾向</view>
   <form bindsubmit="mateHandle" class='form'>
-    <picker bindchange="pickMinAge" value='{{index}}' range="{{ageArr}}" style='border-top:1rpx solid #e5e5e5;'>
+    <picker bindchange="pickMinAge" name="ageMin" value='{{ageMin}}' range="{{ageArr}}" style='border-top:1rpx solid #e5e5e5;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">最小年龄</label>
-          <input name="ageMin" type="number" class="{{ageMin>0?'cons':'con'}}"  value='{{ageMin}}' disabled/>
+          <!-- <input name="ageMin" type="number" class="{{ageMin>0?'cons':'con'}}"  value='{{ageMin}}' disabled/> -->
+          <view style='align-self:center;color:#B2B2B2;'>{{ageMin}}</view>
           <text class='unit' hidden='{{ageMin==0||ageMin==null}}'>岁</text>
         </view>
         <view class='right-arrow'>
@@ -14,11 +15,12 @@
         </view>
       </view>
     </picker>
-    <picker bindchange="pickMaxAge" value='{{index}}' range="{{ageArr}}" style='border-bottom:1rpx solid #e5e5e5;'>
+    <picker bindchange="pickMaxAge" name='ageMax' value='{{ageMax}}' range="{{ageArr}}" style='border-bottom:1rpx solid #e5e5e5;'>
       <view class="section bot">
         <view class='wrapper'>
           <label class="title">最大年龄</label>
-          <input name="ageMax" type="number" class="{{ageMax>0?'cons':'con'}}"  value='{{ageMax}}' disabled/>
+          <!-- <input name="ageMax" type="number" class="{{ageMax>0?'cons':'con'}}"  value='{{ageMax}}' disabled/> -->
+          <view style='align-self:center;color:#B2B2B2;'>{{ageMax}}</view>
           <text class='unit' hidden='{{ageMax==0||ageMax==null}}'>岁</text>
         </view>
         <view class='right-arrow'>
@@ -26,7 +28,7 @@
         </view>
       </view>
     </picker>
-   <picker bindchange="pickArea" value="{{index}}" range="{{AreaArray}}" name="area" style='border-top:1rpx solid #e5e5e5;margin-top:30rpx;'>
+    <picker bindchange="pickArea" value="{{index}}" range="{{AreaArray}}" name="area" style='border-top:1rpx solid #e5e5e5;margin-top:30rpx;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">地区</label>
@@ -37,7 +39,7 @@
         </view>
       </view>
     </picker>
-     <picker bindchange="pickEducational" value="{{indexs}}" range="{{EducationalArray}}" name="edu" style='border-bottom:1rpx solid #e5e5e5;'>
+    <picker bindchange="pickEducational" value="{{indexs}}" range="{{EducationalArray}}" name="edu" style='border-bottom:1rpx solid #e5e5e5;'>
       <view class="section bot">
         <view class='wrapper'>
           <label class="title">学历</label>

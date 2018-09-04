@@ -1,15 +1,17 @@
 <!--pages/my/index.wxml-->
 <view class='container'>
-  <view class='cp' bindtap='goPerson'  style='border:1rpx solid #e5e5e5;'>
-      <view wx:if="{{headimgurl}}" >
-        <image src='{{headimgurl}}' class='avatar'></image>
-      </view>
-      <view wx:else >
-        <image class="avatar" src="https://www.1537u.cn/Public/home/imgs/choose.png">
-        </image>
-      </view>
+  <view class='cp' bindtap='goPerson' style='border:1rpx solid #e5e5e5;'>
+    <view wx:if="{{userInfo}}">
+      <image src='{{userInfo.headimgurl}}' class='avatar'></image>
+    </view>
+    <view wx:else>
+      <open-data type="userAvatarUrl" class='avatar'></open-data>
+    </view>
     <view>
-      <view class='week'>一周CP</view>
+      <view class='week' wx:if="{{userInfo}}">{{userInfo.nickname}}</view>
+      <view  wx:else>
+         <open-data type="userNickName" class='week'></open-data>
+      </view>
       <view class='zw'>查看个人信息</view>
     </view>
     <view class='right-arrows pp'>
@@ -17,7 +19,7 @@
     </view>
   </view>
 
-  <view class='makeup mrg' >
+  <view class='makeup mrg'>
     <view class="section" bindtap='goIntroSelf'>
       <view class='wrapper'>
         <view class='tar'>
@@ -41,7 +43,7 @@
       </view>
     </view>
   </view>
-  <view class='makeup mrg' bindtap='goIntro' >
+  <view class='makeup mrg' bindtap='goIntro'>
     <view class="section bor">
       <view class='wrapper'>
         <view class='tar'>
@@ -54,7 +56,7 @@
       </view>
     </view>
   </view>
-  <view class='makeup mrg'  >
+  <view class='makeup mrg'>
     <view class="section bor">
       <view class='wrapper'>
         <view class='tar'>

@@ -40,6 +40,7 @@ Page({
   },
 
   mateHandle: function (e) {
+    console.log(e)
     let ageMin = e.detail.value.ageMin;
     let ageMax = e.detail.value.ageMax;
     let area = e.detail.value.area;

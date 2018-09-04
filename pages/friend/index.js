@@ -10,8 +10,8 @@ Page({
     percent: '',
     openid: '',
     hyArrs: '',
-    top: 984,
-    status: 1,
+    top: 1096,
+    status: 0,
     page: 1,
     haveMore: true,
   },
@@ -38,7 +38,7 @@ Page({
    */
   onShow: function() {
     var that = this;
-    // var openid = that.data.openid;
+    var openid = that.data.openid;
     var page = that.data.page;
     if (wx.getStorageSync('openid')) {
       wx.request({
@@ -50,6 +50,11 @@ Page({
         },
         success: function(res) {
           console.log(res)
+          if (res.data.status == 3) {
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }
           that.setData({
             status: res.data.status,
             shenfen: res.data.zhuli.name,
@@ -57,11 +62,12 @@ Page({
             percent: res.data.zhuli.grade * 12.5,
             haveMore: res.data.zhuli.more,
           })
-          if (res.data.status == 1 || res.data.status == 2) {
+          if (res.data.status == 1) {
             that.setData({
-              top: 1096
+              top: 984
             })
           }
+       
         }
       })
     } else {
@@ -115,9 +121,9 @@ Page({
         // 请求下一页数据
         page++;
         that.data.page = page;
-        wx.showLoading({
-          title: '加载中',
-        })
+        // wx.showLoading({
+        //   title: '加载中',
+        // })
         wx.request({
           url: app.globalData.base_url + 'wechat/share',
           data: {

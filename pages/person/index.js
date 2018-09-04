@@ -80,7 +80,7 @@ Page({
 
   personHandle: function (e) {
     console.log(e)
-    let gender = e.detail.value.gender;
+    let gender = Number.parseInt(e.detail.value.gender) + 1;
     let birthday = e.detail.value.birthday;
     let region = e.detail.value.region;
     let province = region[0];
@@ -91,7 +91,7 @@ Page({
     let school = e.detail.value.school;
     let educational = e.detail.value.educational;
     let mes = "";
-    if (gender === "") {
+    if (gender === ""||gender==null) {
       mes = "性别"
       wx.showModal({
         title: '信息不完整',
@@ -176,7 +176,7 @@ Page({
       })
       return
     }
-    gender = gender === '男' ? 1 : 2
+    // gender = gender === '男' ? 1 : 2
     wx.request({
       url: app.globalData.base_url + 'wechat/save_info',
       data: {

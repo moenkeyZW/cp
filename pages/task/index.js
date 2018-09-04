@@ -55,6 +55,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function(res) {
+        console.log(res)
         if(res.data.status===1){
           that.setData({
             task: res.data.status,

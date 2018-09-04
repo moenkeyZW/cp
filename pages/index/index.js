@@ -6,6 +6,7 @@ Page({
   data: {
     status: 0,
     userInfo: {},
+    name:'',
     task: 1,
     num: '',
     distance: 2,
@@ -65,10 +66,12 @@ Page({
         console.log(res)
         that.setData({
           status: res.data.status,
+        
         })
         if (res.data.status === 1) {
           wx.setStorageSync('phase', res.data.data.phase);
           that.setData({
+            name: res.data.name,
             percent: res.data.data.grade * 12.5,
             shenfen:res.data.zhuli.name,
             distance: res.data.zhuli.diff,
@@ -98,10 +101,16 @@ Page({
 
   },
   getUserInfo: function(e) {
-    console.log(e)
-    app.onLogin();
-    var that = this
-    if (e.detail.errMsg == "getUserInfo:ok") {
+    if (!wx.getStorageSync('openid')){
+      app.onLogin();
+      if (e.detail.errMsg == "getUserInfo:ok") {
+        wx.navigateTo({
+          url: '/pages/totalPer/index',
+        })
+      }else{
+        return
+      }
+    }else{
       wx.navigateTo({
         url: '/pages/totalPer/index',
       })
@@ -115,12 +124,9 @@ Page({
   },
 
   onShareAppMessage: function(res) {
-    if (app.globalData.userInfo) {
-      var openid = wx.getStorageSync('openid');
-      var name = app.globalData.userInfo.nickname;
-    } else {
-      app.onRefresh();
-    }
+    var that=this;
+    var openid = wx.getStorageSync('openid');
+    var name=that.data.name;
     return {
       title: '来自' + name + '的一封信',
       path: '/pages/friend/index?openid=' + openid,

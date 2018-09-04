@@ -16,6 +16,8 @@
   height: 140rpx;
   margin:0 30rpx 0 50rpx;
   border-radius: 50%;
+  overflow: hidden;
+  display: block;
 }
 .right-arrows {
   position: absolute;

@@ -109,15 +109,15 @@ Page({
 
     wx.closeSocket();
 
-    wx.showToast({
+    // wx.showToast({
 
-      title: '连接已断开~',
+    //   title: '连接已断开~',
 
-      icon: "none",
+    //   icon: "none",
 
-      duration: 2000
+    //   duration: 2000
 
-    })
+    // })
 
   },
 
@@ -300,6 +300,7 @@ Page({
     })
   },
   sendEmoji:function(e){
+
     var that=this;
     var str=e.target.dataset.emoji;
     if(str>=24){
