@@ -28,7 +28,7 @@ App({
                         'content-type': 'application/json'
                       },
                       success: function(res) {
-                        console.log(res)
+                        console.log(3,res)
                         that.globalData.userInfo = res.data.userinfo;
                         wx.setStorageSync('session', res.data.hash);
                         wx.setStorageSync('openid', res.data.openid);
@@ -66,6 +66,7 @@ App({
                       'content-type': 'application/json'
                     },
                     success: function(res) {
+                      console.log('fail',res)
                       that.globalData.userInfo = res.data.userinfo;
                       wx.setStorageSync('session', res.data.hash);
                       wx.setStorageSync('openid', res.data.openid);

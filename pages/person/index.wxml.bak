@@ -9,7 +9,7 @@
       <input placeholder='请填写你的微信号' placeholder-style="text-align:right" bindconfirm='wxInput' value='{{wxh}}' name="wxh" />
     </view> -->
     <view class='makeup dd'>
-     <picker bindchange="pickGender" name="gender" value="{{index}}" range="{{genderArray}}" style='border-top:1rpx solid #e5e5e5;'>
+        <picker bindchange="pickGender" name="gender" value="{{index}}" range="{{genderArray}}" style='border-top:1rpx solid #e5e5e5;'>
       <view class="section">
         <view class='wrapper'>
           <label class="title">性别</label>
